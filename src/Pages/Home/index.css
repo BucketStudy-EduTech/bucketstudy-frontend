@@ -1,0 +1,244 @@
+.home-section{
+  font-family: 'Poppins';
+}
+.home-heading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to left,#5245E5,#9034EA,#D12887);
+  height: 300px;
+}
+.heading{
+  font-size: 50px;
+  color: whitesmoke;
+}
+.para{
+  font-size: larger;
+  color: whitesmoke;
+}
+span{
+  color: #FDE047;
+}
+.course-section {
+  font-family: 'Poppins';
+  padding: 40px;
+  background: #f9f9f9;
+}
+
+.course-banner {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #f24c1a, #9b2cf4);
+  color: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+
+}
+
+.course-content {
+  max-width: 60%;
+}
+
+.badge {
+  background: rgba(255, 255, 255,0.2);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.course-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.course-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+ 
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.cta-button {
+  background: white;
+  color: #f24c1a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #ffe3d9;
+}
+
+.launch-banner {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  align-self: center;
+}
+
+.new-label {
+  background: gold;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 900px;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.step-card {
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1;
+  min-width: 240px;
+  transition: transform 0.2s ease;
+}
+
+.step-card h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.section-title {
+  margin-top: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+.section-para{
+   text-align: center;
+}
+.courses-container {
+  padding: 40px 20px;
+  background-color: #f9fafe;
+  text-align: center;
+}
+
+.course-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 28px;
+  height: 140px;
+  width: 280px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.course-card h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.duration {
+  font-size: 14px;
+  color: #777;
+  font-weight: 500;
+}
+
+.course-buttons {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.limited-offer {
+  display: block;
+  font-size: 14px;
+  color: #c0392b;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-weight: bold;
+}
+
+.enroll-btn {
+  background-color: #6c5ce7;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.enroll-btn:hover {
+  background-color: #5a4bd3;
+}
+
+.journey-section {
+  background: #e74c3c;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.journey-section h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.journey-section p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.journey-btn {
+  background: #fff;
+  color: #e74c3c;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}

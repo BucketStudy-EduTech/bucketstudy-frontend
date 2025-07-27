@@ -1,0 +1,53 @@
+.nav-bar {
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+.img {
+  height: 40px;
+  width: 200px;
+}
+
+.nav-bar .ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 50px;
+  margin-right: 300px;
+}  
+
+.nav-bar .ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-bar .ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px; 
+  width: 0;
+  height: 2px;
+  background-color: #007bff; 
+  transition: width 0.4s ease-in-out;
+}
+
+.nav-bar .ul li a:hover::after {
+  width: 100%;
+}
+
+.nav-bar .ul li a:hover {
+  color: #007bff; 
+}
