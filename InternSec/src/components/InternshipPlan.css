@@ -1,0 +1,85 @@
+.plan-section {
+  padding: 4rem 2rem;
+  background: white;
+  text-align: center;
+   font-family: "poppins";
+}
+
+.plan-heading {
+  font-family: "poppins";
+  font-size: 2.4rem;
+  color: #a020f0;
+  margin-bottom: 3rem;
+  animation: fadeDown 1.2s ease-in-out;
+}
+
+.plan-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(168, 159, 159, 0.15);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 1.5s ease-in-out;
+}
+
+.plan-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(160, 32, 240, 0.4);
+}
+
+.plan-card h3 {
+  color: #ff1493;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.plan-card ul {
+  text-align: left;
+  padding-left: 1.5rem;
+  color: #333;
+}
+
+.plan-card ul li {
+  font-size: 1.1rem;
+  margin: 0.6rem 0;
+  list-style-type: disc;
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .plan-card {
+    margin: 1rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .plan-heading {
+    font-size: 2rem;
+  }
+}
