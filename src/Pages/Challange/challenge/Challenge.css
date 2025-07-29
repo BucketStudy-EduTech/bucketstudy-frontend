@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+.first {
+  width: 100vw;
+/* background: linear-gradient(135deg, #974be8, #4386f9, #3b4cd9); */
+/* background: linear-gradient(135deg, #8e2de2, #4a00e0); */
+
+/* background: 
+  linear-gradient(135deg, #8e2de2, #4a00e0), 
+  radial-gradient(ellipse at bottom, #ffffffaa 0%, transparent 60%); 
+background-blend-mode: screen; */
+
+/* background: linear-gradient(to bottom, #3b82f6 0%, #3b82f6 30%, #ffffff 100%); */
+
+
+background: linear-gradient(
+  to bottom,
+  #8e2de2 0%,
+  #4a00e0 50%,
+  #ffffff 100%
+);
+
+  
+
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin-left: -4cm;
+  margin-top: -1cm;
+  height: 7cm;
+}
+
+
+.first h1{
+    padding-top: 60px;
+    color: white;
+}
+
+.first h5{
+    color: white;
+    padding-bottom: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+} 
+
+
+/* 🌐 Mobile Responsive */
+@media screen and (max-width: 448px) {
+  .first {
+    /* padding: 40px 15px; */
+   
+    align-items: center;
+    margin-left: -19px;
+  }
+
+  .first h1 {
+    font-size: 2rem;
+  }
+
+  .first h5 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+    .first{
+        width: 100%;
+        overflow: hidden;
+    }
+  .first h1 {
+    font-size: 1.7rem;
+    
+  }
+
+  .first h5 {
+    font-size: 0.95rem;
+  }
+}

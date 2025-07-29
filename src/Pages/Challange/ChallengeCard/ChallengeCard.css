@@ -1,0 +1,224 @@
+
+.challenge-container {
+  font-family: 'Poppins', sans-serif;
+background: linear-gradient(180deg, #e95791, #bc45d1, #5f2eea);
+
+  color: #333;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.challenge-header h1 {
+  font-size: 2.8rem;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.challenge-header p {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.challenge-section h2 {
+  font-size: 2rem;
+  color: #444;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.challenge-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.challenge-card:hover {
+  transform: scale(1.01);
+}
+
+.status-tags {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.completed-tag,
+.team-event-tag {
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.completed-tag {
+  background-color: #22c55e;
+  color: white;
+}
+
+.team-event-tag {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+}
+
+.challenge-title {
+  font-size: 1.6rem;
+  margin-top: 10px;
+  color: #222;
+}
+
+.level-info {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.prize-box {
+  border: 2px dashed #999;
+  border-radius: 12px;
+  padding: 16px;
+  width: 180px;
+  margin: 0 auto 30px;
+  background-color: #f9f9f9;
+}
+
+.prize-amount {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.prize-note {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.info-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-item {
+  text-align: center;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.info-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.info-subtext {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.blue {
+  color: #3b82f6;
+}
+
+.purple {
+  color: #8b5cf6;
+}
+
+.orange {
+  color: #fb923c;
+}
+
+.learn-more-btn,
+.register-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-more-btn {
+  background-color: #4f46e5;
+  color: white;
+  margin-right: 12px;
+}
+
+.learn-more-btn:hover {
+  background-color: #6366f1;
+}
+
+.register-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.register-btn:hover {
+  background-color: #059669;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .challenge-card {
+    padding: 20px;
+  }
+
+  .info-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .learn-more-btn,
+  .register-btn {
+    width: 90%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .challenge-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .challenge-header p {
+    font-size: 0.95rem;
+  }
+
+  .challenge-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .challenge-title {
+    font-size: 1.3rem;
+  }
+
+  .info-item {
+    min-width: auto;
+  }
+
+  .prize-box {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .challenge-container{
+    width: 90%;
+    margin-left: 1px;
+    margin-right: 1px; 
+  }
+}

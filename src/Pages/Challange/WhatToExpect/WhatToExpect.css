@@ -1,0 +1,70 @@
+.expectation-section {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: linear-gradient(to right, #f8f9fa, #eaeaea);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 250px;
+  max-width: 300px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.yellow {
+  border-top: 5px solid #f9c74f;
+}
+
+.card.blue {
+  border-top: 5px solid #577590;
+}
+
+.card.purple {
+  border-top: 5px solid #9d4edd;
+}
+
+
+
+ 
+@media (max-width: 48px) {
+  .expectation-section {
+    width: 90%;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .card-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 350px;
+    padding: 1rem;
+  }
+}

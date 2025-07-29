@@ -8,7 +8,8 @@ import Notfound from './Pages/Notfound/index';
 import Careers from './Pages/Careers';
 import ContactUs from './Pages/ContactUs';
 import Footer from './components/Footer';
-import InternCom from './InternshipCom/InternCom';
+import InternCom from './Pages/InternshipCom/InternCom';
+import Challenges from './Pages/Challenges/index';  
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/career" element={<Careers />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/internships" element={<InternCom />} />
+          <Route path="/challenges" element={<Challenges />} />
          </Routes>
          
          {/*------------ Footer Component ------------  */}
