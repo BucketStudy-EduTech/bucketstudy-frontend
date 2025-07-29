@@ -1,0 +1,20 @@
+.available-programs {
+  padding: 3rem 2rem;
+  background: linear-gradient(to right , #df4e96, #6f42c1); /* pink to purple */
+  text-align: center;
+  font-family: "poppins";
+}
+
+.available-programs h2 {
+  font-family: "poppins";
+  font-size: 2rem;
+  color: #a020f0;
+  margin-bottom: 2rem;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
