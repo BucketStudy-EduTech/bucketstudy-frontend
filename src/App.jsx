@@ -9,7 +9,7 @@ import Careers from './Pages/Careers';
 import ContactUs from './Pages/ContactUs';
 import Footer from './components/Footer';
 import InternCom from './Pages/InternshipCom/InternCom';
-import Challenges from './Pages/Challenges/index';  
+import Challenges from './Pages/Challange/challendeCom'
 
 function App() {
   return (
