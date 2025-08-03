@@ -1,13 +1,6 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
 
 
 .first {
-  width: 100vw;
-
 
 background: linear-gradient(
   to bottom,
