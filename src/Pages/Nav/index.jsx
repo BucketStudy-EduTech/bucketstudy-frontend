@@ -14,7 +14,7 @@ function Nav() {
   const links = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
-     { label: "internships", path: "/internship" },
+     { label: "internships", path: "/internships" },
     { label: "Challenges", path: "/challenges" },
     {label: "Careers", path: "/career" },
     { label: "Contact Us", path: "/contact" },
