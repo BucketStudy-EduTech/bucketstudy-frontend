@@ -1,0 +1,35 @@
+.course-list-container {
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .course-list-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: "poppins";
+    color: #0d0e0c;
+  }
+  .course-list-titlee{
+    font-family: "poppins";
+    font-size: 40px;
+    color: rgb(8, 8, 8);
+  }
+  
+  .course-list-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
