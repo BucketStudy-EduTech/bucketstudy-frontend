@@ -9,7 +9,10 @@ import Careers from './Pages/Careers';
 import ContactUs from './Pages/ContactUs';
 import Footer from './components/Footer';
 import InternCom from './Pages/InternshipCom/InternCom';
-import Challenges from './Pages/Challange/challendeCom'
+import Challenges from './Pages/Challange/challendeCom';
+import Login from './Pages/LoginSignup/Login/Login'
+// import Signup from './Pages/LoginSignup/Signup/Signup'
+
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/internships" element={<InternCom />} />
           <Route path="/challenges" element={<Challenges />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/Signup" element={<Signup />} /> */}
          </Routes>
          
          {/*------------ Footer Component ------------  */}

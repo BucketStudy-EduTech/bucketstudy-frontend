@@ -1,0 +1,97 @@
+ /* Background Gradient inspired by Bucketstudy */
+.forgot-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #2e003e, #4b004e, #72005f, #a1006f);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+}
+
+/* Glassmorphism + Entry Animation */
+.forgot-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+  color: white;
+  animation: slideFadeIn 0.8s ease-out;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading and paragraph */
+.forgot-box h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  color: #fff;
+}
+
+.forgot-box p {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+/* Input styles */
+.forgot-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+}
+
+.forgot-box input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ff69b4;
+}
+
+/* Button styles */
+.forgot-box button {
+  width: 100%;
+  background-color: #ff69b4;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.forgot-box button:hover {
+  background-color: #ff85c1;
+}
+
+/* Back to login link */
+.back-link {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: #ff9bd4;
+  font-size: 13px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

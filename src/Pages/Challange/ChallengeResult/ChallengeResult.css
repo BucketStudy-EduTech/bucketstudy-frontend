@@ -1,122 +1,4 @@
-/* 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f6fc;
-}
 
-.container {
-  text-align: center;
-  padding: 30px 20px;
-}
-
-
-
-.title {
-  font-size: 24px;
-  color: #1e293b;
-  margin-bottom: 20px;
-}
-
-.winner-box {
-  background-color: #fff8e1;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.winner-box h2 {
-  color: #f59e0b;
-  margin: 0;
-  font-size: 22px;
-}
-
-.winner-subtitle {
-  font-size: 17px;
-  color: #374151;
-  margin: 10px 0;
-  font: bold;
-}
-
-.members {
-  color: #6b7280;
-  font-size: 14px;
-}
-
-.team-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.card {
-  width: 180px;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.second-place img{
-    width: 100px;
-    height: 90px;
-    border-radius: 50%;
-}
-
-.third-place img{
-    width: 100px;
-    height: 90px;
-    border-radius: 50%;
-}
-
-.fourth-place img{
-    width: 100px;
-    height: 90px;
-    border-radius: 50%;
-}
-
-.second-place {
-  background-color: #e0f2fe;
-  width: 300px;
-}
-
-.third-place {
-  background-color: #fef3c7;
-  width: 300px;
-}
-
-.fourth-place {
-  background-color: #d1fae5;
-  width: 300px;
-}
-
-.card h3 {
-  font-size: 22px;
-  color: #1f2937;
-  margin-bottom: 5px;
-}
-
-.team-name {
-  font-weight: bold;
-  font-size: 16px;
-  color: #111827;
-  margin-bottom: 8px;
-}
-
-.member {
-  font-size: 14px;
-  color: #4b5563;
-  margin: 2px 0;
-}
-
-.place {
-  font-size: 13px;
-  color: #6b7280;
-  margin-top: 8px;
-}
- */
 
  body {
   margin: 0;
@@ -269,6 +151,7 @@ body {
   .winner-highlight{
     width: 200px;
     align-items: center;
+    margin-left: 1cm;
   }
 
   .winner-subtitle {
@@ -280,10 +163,8 @@ body {
   }
 
   .team-card {
-    /* padding: 16px;
+    
     width: 200px;
-    grid-column: auto; */
-     width: 200px;
     max-width: 300px;
     margin-bottom: 16px;
     

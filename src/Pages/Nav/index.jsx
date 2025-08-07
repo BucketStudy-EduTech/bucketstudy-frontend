@@ -18,6 +18,7 @@ function Nav() {
     { label: "Challenges", path: "/challenges" },
     {label: "Careers", path: "/career" },
     { label: "Contact Us", path: "/contact" },
+    { label: "Login", path: "/login" },
   ];
 
   return (

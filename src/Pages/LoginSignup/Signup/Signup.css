@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+.signup-wrapper {
+  height: 100vh;
+  width: 100vw; /* Full width of the viewport */
+  background: linear-gradient(135deg, #2e003e, #4b004e, #72005f, #a1006f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  margin: 0;
+  overflow: hidden;
+  /* margin-left: -4.5cm; */
+}
+
+.signup-form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  color: #fff;
+
+}
+
+.signup-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: white
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  color: white;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+.login-link {
+  margin-top: 10px;
+  text-align: center;
+   font-size: 13px;
+} 
+
+.login-link a {
+  color: #ff9bd4;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* Add animation to signup card */
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signup-form {
+  /* keep your existing styles... */
+  animation: slideFadeIn 0.8s ease-out;
+}
+
+
+@media (max-width: 600px) {
+  .signup-wrapper {
+    padding: 10px;
+    margin-left: -20px; /* remove that -4.5cm left margin on small screens */
+    align-items: flex-start;
+    padding-top: 60px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
+
+  .signup-form {
+    padding-left: 10px;
+    padding-right: 1cm;
+    max-width: 100%;
+    box-shadow: none; /* Optional: remove shadow for cleaner mobile look */
+    border-radius: 12px;
+  }
+
+  .signup-form h2 {
+    font-size: 22px;
+  }
+
+  .signup-form input,
+  .signup-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .toggle-icon {
+    top: 25%;
+  }
+
+  .login-link {
+    font-size: 12px;
+  }
+}
