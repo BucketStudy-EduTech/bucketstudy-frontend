@@ -1,39 +1,54 @@
-.home-section{
-  font-family: 'Poppins';
+
+/* General Font Setup */
+body, .home-section {
+  font-family: 'Poppins', sans-serif;
+  color: #1f1f1f;
 }
-.home-heading{
+
+/* Hero Section */
+.home-heading {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to left,#5245E5,#9034EA,#D12887);
-  height: 300px;
-}
-.heading{
-  font-size: 50px;
-  color: whitesmoke;
-}
-.para{
-  font-size: larger;
-  color: whitesmoke;
-}
-span{
-  color: #FDE047;
-}
-.course-section {
-  font-family: 'Poppins';
-  padding: 40px;
-  background: #f9f9f9;
+  background-image: linear-gradient(to left, #4f46e5, #9333ea, #db2777);
+  height: 320px;
+  padding: 20px;
+  text-align: center;
 }
 
+.heading {
+  font-size: 3rem;
+  color: #fff;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.heading span {
+  color: #fde047;
+}
+
+.para {
+  font-size: 1.25rem;
+  color: #f3f4f6;
+  margin-top: 10px;
+}
+
+/* Course Section */
+.course-section {
+  padding: 60px 30px;
+  background: #f8fafc;
+}
+
+/* Course Banner */
 .course-banner {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  background: linear-gradient(to right, #f24c1a, #9b2cf4);
+  background: linear-gradient(to right, #ef4444, #8b5cf6);
   color: white;
-  border-radius: 20px;
+  border-radius: 18px;
   padding: 30px;
-  margin-bottom: 40px;
-
+  margin-bottom: 50px;
 }
 
 .course-content {
@@ -41,53 +56,60 @@ span{
 }
 
 .badge {
-  background: rgba(255, 255, 255,0.2);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
   display: inline-block;
-  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .course-content h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .course-content p {
+  font-size: 1rem;
   margin-bottom: 20px;
-  font-size: 16px;
+  line-height: 1.5;
 }
 
 .tags {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
- 
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .tag {
   background: rgba(255, 255, 255, 0.2);
-  padding: 12px;
+  padding: 10px 16px;
   border-radius: 12px;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .cta-button {
   background: white;
-  color: #f24c1a;
-  padding: 10px 20px;
+  color: #ef4444;
+  padding: 12px 24px;
   border: none;
   border-radius: 10px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .cta-button:hover {
-  background: #ffe3d9;
+  background: #ffe3e3;
 }
 
+/* Launch Box */
 .launch-banner {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
@@ -98,11 +120,11 @@ span{
 }
 
 .new-label {
-  background: gold;
-  color: black;
+  background: #fde047;
+  color: #111827;
   font-weight: bold;
   padding: 10px;
-  border-radius: 900px;
+  border-radius: 999px;
   font-size: 12px;
   display: inline-block;
   margin-bottom: 10px;
@@ -110,35 +132,56 @@ span{
 
 .steps-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
+  margin-top: 40px;
 }
 
 .step-card {
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #fff;
   border-radius: 12px;
-  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 24px;
   flex: 1;
-  min-width: 240px;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
 }
 
 .step-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
   margin-bottom: 10px;
-  font-size: 16px;
 }
 
-.section-title {
+.step-card p {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Course Programs */
+.section-titles{
   margin-top: 40px;
-  font-size: 20px;
+  font-size: 1.8rem;
   text-align: center;
+  color:#D12887; /* a vibrant purple */
+  font-weight: 700;
 }
-.section-para{
-   text-align: center;
+
+
+.section-para {
+  text-align: center;
+  font-size: 1rem;
+  color: #4b5563;
+  margin-top: 10px;
 }
+
+/* Courses Container */
 .courses-container {
-  padding: 40px 20px;
+  padding: 50px 20px;
   background-color: #f9fafe;
   text-align: center;
 }
@@ -148,97 +191,121 @@ span{
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .course-card {
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  padding: 28px;
-  height: 140px;
-  width: 280px;
+  padding: 32px; /* was 28px */
+  height: 180px;  /* was 140px */
+  width: 320px;   /* was 280px */
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+
 .course-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .course-card h3 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
 }
 
 .course-card p {
-  font-size: 15px;
-  color: #555;
-  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 10px;
 }
 
 .duration {
-  font-size: 14px;
+  font-size: 15px;
   color: #777;
   font-weight: 500;
+  margin-top: 10px;
+  display: inline-block;
 }
 
+
 .course-buttons {
-  margin-top: 20px;
-  margin-bottom: 25px;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .limited-offer {
+  font-size: 0.9rem;
+  color: #b91c1c;
+  font-weight: 600;
+  margin-bottom: 25px;
   display: block;
-  font-size: 14px;
-  color: #c0392b;
-  margin-bottom: 20px;
-  font-weight: 500;
-  font-weight: bold;
 }
 
 .enroll-btn {
-  background-color: #6c5ce7;
+  background-color: #6366f1;
   color: white;
-  padding: 12px 24px;
+  padding: 14px 28px;
   border: none;
   border-radius: 10px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 15px;
   cursor: pointer;
-  transition: background-color 0.5s;
+  transition: background-color 0.4s;
 }
 
 .enroll-btn:hover {
-  background-color: #5a4bd3;
+  background-color: #4f46e5;
 }
 
+/* Final CTA Section */
 .journey-section {
   background: #e74c3c;
-  color: #fff;
-  padding: 40px 20px;
+  color: white;
+  padding: 50px 30px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 12px;
+  margin-top: 50px;
 }
 
 .journey-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 10px;
-  font-size: 24px;
 }
 
 .journey-section p {
+  font-size: 1.1rem;
   margin-bottom: 20px;
-  font-size: 14px;
+  color: #ffe4e6;
 }
 
 .journey-btn {
-  background: #fff;
-  color: #e74c3c;
-  padding: 10px 20px;
+  background-color: #fff;
+  color: #dc2626;
+  padding: 14px 28px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-weight: bold;
   cursor: pointer;
-  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
+
+.journey-btn:hover {
+  background-color: #fca5a5;
+  color: #fff;
+}
+.typed-text {
+  font-size: 3.7rem;
+  font-weight: bold;
+  color: #facc15; 
+}
+

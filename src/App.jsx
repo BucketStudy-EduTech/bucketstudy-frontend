@@ -10,7 +10,8 @@ import ContactUs from './Pages/ContactUs';
 import Footer from './components/Footer';
 import InternCom from './Pages/InternshipCom/InternCom';
 import Challenges from './Pages/Challange/challendeCom';
-import Login from './Pages/LoginSignup/Login/Login'
+import Login from './Pages/LoginSignup/Login/Login';
+import Profile from './Pages/Profile/index';
 // import Signup from './Pages/LoginSignup/Signup/Signup'
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="/Signup" element={<Signup />} /> */}
+          <Route path="/profile" element={<Profile />} />
          </Routes>
          
          {/*------------ Footer Component ------------  */}

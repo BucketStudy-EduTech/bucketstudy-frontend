@@ -1,4 +1,4 @@
-import './index.css'
+import './index.css';
 
 //--------------------  NOTFOUND COMPONENT ----------------------
 const NotFound = () => (
@@ -11,4 +11,4 @@ const NotFound = () => (
   </div>
 )
 
-export default NotFound
+export default NotFound;
