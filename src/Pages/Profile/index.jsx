@@ -40,7 +40,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-wrapper">
+    <div className="profile-wrapper h-full w-full relative">
       <h2>My Profile</h2>
 
       {/* Profile Header */}
@@ -64,6 +64,7 @@ const Profile = () => {
         </div>
         {editMode ? (
           <textarea
+            id='profile_textarea'
             name="about"
             placeholder="Write something about yourself"
             value={profile.about}

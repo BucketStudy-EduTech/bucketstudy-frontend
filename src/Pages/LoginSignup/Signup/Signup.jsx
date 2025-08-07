@@ -99,7 +99,7 @@ function Signup() {
         />
         {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
 
-        <button type="submit">Register</button>
+        <button id="submit" type="submit">Register</button>
 
         <p className="login-link">
           Already registered? <a href="/login">Login here</a>

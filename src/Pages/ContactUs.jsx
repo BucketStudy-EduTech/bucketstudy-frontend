@@ -2,6 +2,7 @@ import React from 'react';
 import { GrLocation } from "react-icons/gr";
 import { AiTwotoneMail } from "react-icons/ai";
 import FAQ from '../components/FAQ'
+import { toast } from 'react-hot-toast';
 
 const ContactUs = () => {
   
@@ -49,14 +50,14 @@ const ContactUs = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white shadow-2xl shadow-gray-500 rounded-xl p-8 ">
+        <div className=" shadow-2xl shadow-gray-500 rounded-xl p-8 border-2 border-gray-300 bg-gray-200/50">
           <h2 className="text-2xl font-semibold mb-1.5">Send Us a Message</h2>
           <form className="space-y-4">
             <div>
               <label className="block text-gray-700 text-sm">Your Name</label>
               <input
                 type="text"
-                className=" block w-full border-2 border-gray-300 rounded-md p-2"
+                className=" block w-full border-2 border-gray-400 rounded-md p-2"
                 placeholder="Dishank M"
               />
             </div>
@@ -67,6 +68,7 @@ const ContactUs = () => {
               <input
                 type="email"
                 className="mt-1 block w-full border-2 border-gray-300 rounded-md p-2 "
+                
                 placeholder="dishank@example.com"
               />
             </div>
@@ -81,13 +83,20 @@ const ContactUs = () => {
             <div>
               <label className="block text-gray-700 text-sm">Message</label>
               <textarea
-                className="block w-full border-2 border-gray-300 rounded-md p-2 h-32 resize-none"
+                className="block w-full border-2 border-gray-300 rounded-md p-2 h-32 resize-none bg-white "
+                
                 placeholder="Your message here..."
               ></textarea>
+              
             </div>
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-red-400 to-blue-500 text-white font-semibold px-6 py-2 rounded hover:opacity-90 transition"
+              onClick={(e) => {
+                e.preventDefault();
+                toast.success("Message sent successfully!");
+                
+              }}
             >
               Send Message
             </button>

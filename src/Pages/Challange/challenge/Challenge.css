@@ -16,27 +16,14 @@ background: linear-gradient(
   box-sizing: border-box;
   /* margin-left: -4cm;
   margin-top: -1cm; */
-  height: 7cm;
+  height: 6cm;
   align-items: center;
 }
 
 
-.first h1{
-    padding-top: 60px;
-    color: white;
-    align-items: center;
-    padding-left: 17cm;
-    font-size: xx-large;
-  
-}
 
-.first h5{
-    color: white;
-    padding-bottom: 60px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: larger;
-    Padding-left: 17cm;
-} 
+
+
 
 
 /* 🌐 Mobile Responsive */

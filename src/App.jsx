@@ -12,7 +12,10 @@ import InternCom from './Pages/InternshipCom/InternCom';
 import Challenges from './Pages/Challange/challendeCom';
 import Login from './Pages/LoginSignup/Login/Login';
 import Profile from './Pages/Profile/index';
-// import Signup from './Pages/LoginSignup/Signup/Signup'
+import Signup from './Pages/LoginSignup/Signup/Signup';
+import DashboardLayout from './components/DashboardLayout';
+import EnrolledCourses from './Pages/StudentDashboard/EnrolledCourses';
+import Settings from './Pages/StudentDashboard/Settings';
 
 
 function App() {
@@ -29,8 +32,14 @@ function App() {
           <Route path="/internships" element={<InternCom />} />
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/Signup" element={<Signup />} /> */}
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/signup" element={<Signup />} /> 
+          
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />} />
+            <Route path="/dashboard/my-profile" element={<Profile />}/>
+            <Route path='/dashboard/settings' element={<Settings />} />
+            {/* Add more nested routes here */}
+          </Route>
          </Routes>
          
          {/*------------ Footer Component ------------  */}

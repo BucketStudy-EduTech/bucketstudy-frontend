@@ -30,7 +30,7 @@ export default function Careers() {
       </section>
 
       <div className='w-full bg-white'>
-        <div className="container mx-auto px-2 py-12 flex flex-col lg:flex-row gap-12 w-11/12">
+        <div className="container mx-auto px-2 py-12 flex flex-col lg:flex-row gap-12 max-w-11/12">
         <section className="lg:w-1/2">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Why BucketStudy ?</h2>
           <p className="text-lg text-gray-800 leading-relaxed mb-6 ">
@@ -46,7 +46,7 @@ export default function Careers() {
         </section>
 
           {/* Perks and Benefits imported from PerkItems.jsx */}
-        <section className="lg:w-2xl lg:h-[17rem] bg-gray-200 rounded-tl-4xl rounded-br-4xl shadow-2xl p-8 mt-5 hover:scale-105 transition-transform duration-300">
+        <section className="lg:w-2xl lg:h-[17rem] bg-gray-200 rounded-tl-4xl rounded-br-4xl shadow-2xl p-5 mt-3  hover:scale-105 transition-transform duration-300 border-2 border-gray-400 ">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Perks & Benefits</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <PerkItem icon={HiOutlineRocketLaunch} title="Growth-Focused" description="Rapid learning and career advancement opportunities" />
