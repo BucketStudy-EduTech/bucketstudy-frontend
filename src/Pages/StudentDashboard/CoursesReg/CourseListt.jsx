@@ -1,7 +1,8 @@
 import React from 'react';
 import CourseCard from './CourseCardd';
-import courses from '../data/courses';
+import courses from '../../../data/courses';
 import './CourseListt.css';
+
 
 function CourseList() {
   return (

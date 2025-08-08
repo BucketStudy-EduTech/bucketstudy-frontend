@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CourseCardd.css';
 
+
 function CourseCard({ course }) {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false); 
@@ -19,7 +20,7 @@ function CourseCard({ course }) {
   };
 
   return (
-    <div className="course-card">
+    <div className="course-card max-h-5xl">
       <div className="course-content">
         <h3>{course.name}</h3>
         <p><strong>Tutor:</strong> {course.tutor}</p>
@@ -29,7 +30,9 @@ function CourseCard({ course }) {
         <p className="desc">{course.description.slice(0, 100)}...</p>
 
         <div className="button-group">
-          <Link to={`/courses/${course.id}`}></Link>
+          <Link to={`/courses/${course.id}`} className="view-btn">View Details</Link>
+          <Link to={`/register/${course.id}`} className="register-btn">Register Now</Link>
+
           <button className="styled-buttonn" onClick={toggleForm}>
             {showForm ? 'Close Form' : 'Register'}
           </button>
@@ -51,7 +54,7 @@ function CourseCard({ course }) {
                 <option value="Offline">Offline</option>
               </select>
               <textarea placeholder="Message..." rows="3" />
-              <button type="submit" className="submit-btn">Submit</button>
+              <button type="submit" className="submit-btn ">Submit</button>
 
               
               {submitted && (

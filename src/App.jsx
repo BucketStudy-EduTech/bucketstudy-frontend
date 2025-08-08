@@ -1,8 +1,6 @@
-//------------ Importing components and routes ------------
-
-import Home  from './Pages/Home/index';
-import Nav  from './Pages/Nav/index';
-import About  from './Pages/About/index';
+import Home from './Pages/Home/index';
+import Nav from './Pages/Nav/index';
+import About from './Pages/About/index';
 import { Route, Routes } from 'react-router-dom';
 import Notfound from './Pages/Notfound/index';
 import Careers from './Pages/Careers';
@@ -16,37 +14,49 @@ import Signup from './Pages/LoginSignup/Signup/Signup';
 import DashboardLayout from './components/DashboardLayout';
 import EnrolledCourses from './Pages/StudentDashboard/EnrolledCourses';
 import Settings from './Pages/StudentDashboard/Settings';
+import CourseSection from './Pages/StudentDashboard/CoursesReg/CourseSection';
 
 
 function App() {
   return (
-    <div className="App">
-         < Nav />
-          {/*------------ Applying Routing ------------  */}
-          <Routes> 
-          <Route path ="/" element={ < Home />}/>
-          <Route path ="/about" element={ < About />}/> 
-          <Route path="*" element={ < Notfound />}/> 
-          <Route path="/career" element={<Careers />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/internships" element={<InternCom />} />
-          <Route path="/challenges" element={<Challenges />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} /> 
+    <div className="app">
+      <Nav />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} /> 
+        <Route path="*" element={<Notfound />} /> 
+        <Route path="/career" element={<Careers />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/internships" element={<InternCom />} />
+        <Route path="/challenges" element={<Challenges />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} /> 
+
+        {/* Standalone course routes */}
+        
+
+        {/* Dashboard nested routes */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />} />
+          <Route path="/dashboard/my-profile" element={<Profile />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
+
+          <Route path="/dashboard/courses/*" element={<CourseSection />} />
+      
+
           
-          <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />} />
-            <Route path="/dashboard/my-profile" element={<Profile />}/>
-            <Route path='/dashboard/settings' element={<Settings />} />
-            {/* Add more nested routes here */}
-          </Route>
-         </Routes>
-         
-         {/*------------ Footer Component ------------  */}
-         <Footer />
+        </Route>
+
+      </Routes>
+
+      
+      
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
 
 export default App;
-

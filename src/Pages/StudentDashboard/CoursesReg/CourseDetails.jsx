@@ -1,8 +1,9 @@
 import React from 'react';
 import './CourseDetails.css';
 import { useParams, useNavigate } from 'react-router-dom';
-import courses from '../data/courses';
+import courses from '../../../data/courses';
 import RegistrationForm from './RegistrationForm';
+
 
 const CourseDetails = () => {
   const { courseName } = useParams();

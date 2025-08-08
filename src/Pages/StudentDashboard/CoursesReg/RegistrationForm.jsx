@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './RegistrationForm.css';
 
+
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -56,7 +57,7 @@ const RegistrationForm = () => {
 
         <textarea name="message" placeholder="Message (optional)" value={formData.message} onChange={handleChange}></textarea>
 
-        <button type="submit">Register</button>
+        <button type="submit" className='w-4 p-5 bg-amber-500-'>Register</button>
       </form>
     </div>
   );
