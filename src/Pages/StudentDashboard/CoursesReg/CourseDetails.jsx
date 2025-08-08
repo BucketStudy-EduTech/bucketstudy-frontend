@@ -2,22 +2,19 @@ import React from 'react';
 import './CourseDetails.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import courses from '../../../data/courses';
-import RegistrationForm from './RegistrationForm';
-
+import './CourseDetails.css'; 
 
 const CourseDetails = () => {
-  const { courseName } = useParams();
+  const { id } = useParams(); // changed from courseName to id
   const navigate = useNavigate();
 
-  const course = courses.find(
-    (course) => course.name.toLowerCase().replace(/\s+/g, '-') === courseName
-  );
+  const course = courses.find(course => course.id.toString() === id);
 
   if (!course) return <div className="course-not-found">Course not found!</div>;
 
   return (
-    <div className="course-details-container">
-      <button className="back-btn" onClick={() => navigate(-1)}>← Back</button>
+    <div className="course-details-container course-card">
+      <button className="w-14 " onClick={() => navigate(-1)}>←  Back</button>
       <h2 className="course-title">{course.name}</h2>
       <p><strong>Tutor:</strong> {course.tutor}</p>
       <p><strong>Duration:</strong> {course.duration}</p>

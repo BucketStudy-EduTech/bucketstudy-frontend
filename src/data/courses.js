@@ -1,5 +1,6 @@
 const courses = [
   {
+    id: 1,
     name: 'React Mastery',
     tutor: 'John Doe',
     duration: '6 Weeks',
@@ -10,6 +11,7 @@ const courses = [
    
   },
   {
+    id: 2,
     name: 'Frontend with HTML/CSS',
     tutor: 'Jane Smith',
     duration: '4 Weeks',
@@ -19,6 +21,7 @@ const courses = [
     
   },
   {
+    id: 3,
     name: 'JavaScript Bootcamp',
     tutor: 'Emily Johnson',
     duration: '5 Weeks',
@@ -28,6 +31,7 @@ const courses = [
     
   },
   {
+    id: 4,
     name: 'Full Stack Basics',
     tutor: 'Michael Brown',
     duration: '8 Weeks',
@@ -37,6 +41,7 @@ const courses = [
     
   },
   {
+    id: 5,
     name: 'UI/UX Fundamentals',
     tutor: 'Laura Wilson',
     duration: '3 Weeks',

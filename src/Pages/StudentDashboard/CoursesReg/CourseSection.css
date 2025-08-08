@@ -96,13 +96,14 @@
     border: none;
     border-radius: 10px;
     font-size: 16px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #0e0b0b;
+    background: rgba(216, 213, 213, 0.658);
+    
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
     color: rgba(70, 48, 48, 0.7);
+    
 }
 
 /* Gradient Button */

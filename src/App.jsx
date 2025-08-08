@@ -42,7 +42,7 @@ function App() {
           <Route path="/dashboard/my-profile" element={<Profile />} />
           <Route path="/dashboard/settings" element={<Settings />} />
 
-          <Route path="/dashboard/courses/*" element={<CourseSection />} />
+          <Route path="/dashboard/*" element={<CourseSection />} />
       
 
           

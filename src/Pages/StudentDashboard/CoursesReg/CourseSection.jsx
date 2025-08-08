@@ -10,8 +10,8 @@ function CourseSection() {
   return (
     <div className="app-container">
       <Routes>
-        <Route path="/" element={<CourseList />} />
-        <Route path="/course/:id" element={<CourseDetail />} />
+        <Route path="/courses" element={<CourseList />} />
+        <Route path="/courses/:id" element={<CourseDetail />} />
         <Route path="/register/:id" element={<RegistrationForm />} />
       </Routes>
 

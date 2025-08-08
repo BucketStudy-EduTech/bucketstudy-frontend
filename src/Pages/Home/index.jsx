@@ -103,7 +103,11 @@ function Home() {
         </div>
 
         <div className="course-buttons">
-          <span className="limited-offer">Limited Time Offer – Early Bird Pricing!</span>
+          <span className="limited-offer">
+            <button className="offer-button">
+              ⏰ Limited Time Offer - Early Bird Pricing!
+            </button>
+          </span>
           <button className="enroll-btn">View All Courses & Enroll</button>
         </div>
 
