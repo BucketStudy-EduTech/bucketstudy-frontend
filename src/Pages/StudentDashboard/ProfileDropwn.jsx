@@ -11,7 +11,7 @@ function ProfileDropdown() {
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   // Close dropdown on outside click
   useEffect(() => {

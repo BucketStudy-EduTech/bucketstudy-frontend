@@ -1,113 +1,184 @@
-import React, { useState, useEffect } from 'react';
-import './index.css';
-import { FaEdit, FaSave } from 'react-icons/fa';
+import React, { useState } from "react";
 
-const Profile = () => {
-  const defaultProfile = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    gender: '',
-    dob: '',
-    about: '',
-  };
+import { FaEdit, FaSave, FaSpinner, FaMale, FaFemale, FaUser, FaUpload } from "react-icons/fa";
 
-  const [profile, setProfile] = useState(defaultProfile);
-  const [editMode, setEditMode] = useState(false);
+// Component for displaying profile data
+const ProfileDisplay = ({ profile, onEdit }) => (
+  <>
+    {/* Avatar */}
+    <div className="flex justify-center mb-6">
+      <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-gray-200 shadow-inner">
+        {profile.avatarUrl ? (
+          <img src={profile.avatarUrl} alt="User Avatar" className="w-full h-full object-cover" />
+        ) : (
+          <FaUser className="w-12 h-12 text-gray-400" />
+        )}
+      </div>
+    </div>
+    
+    <div className="flex items-center justify-between mb-6">
+      <h2 className="text-2xl font-semibold text-gray-800">My Profile</h2>
+      <button
+        onClick={onEdit}
+        className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition duration-200"
+      >
+        <FaEdit /> Edit
+      </button>
+    </div>
+    <div className="space-y-5">
+      {Object.entries(profile).map(([key, value]) => {
+        // Don't display avatarUrl in the list
+        if (key === "avatarUrl") return null;
 
-  // Load from localStorage on mount
-  useEffect(() => {
-    const savedProfile = localStorage.getItem('bucketstudy-profile');
-    if (savedProfile) {
-      setProfile(JSON.parse(savedProfile));
-    }
-  }, []);
+        return (
+          <div key={key}>
+            <label className="block text-sm font-medium text-gray-600 capitalize">
+              {key.replace(/([A-Z])/g, " $1")}
+            </label>
+            <div className="mt-1 w-full bg-gray-50 rounded-lg px-4 py-2 border border-transparent hover:border-blue-300 transition-colors flex items-center gap-2">
+              {key === "gender" && value === "Male" && <FaMale className="text-blue-500" />}
+              {key === "gender" && value === "Female" && <FaFemale className="text-pink-500" />}
+              <span className="text-gray-800">{value}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </>
+);
 
-  // Handle input changes
+// Component for the editable form
+const ProfileForm = ({ profile, onChange, onSave, isLoading }) => (
+  <>
+    {/* Avatar Section */}
+    <div className="flex flex-col items-center mb-6">
+      <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-gray-300 relative group">
+        {profile.avatarUrl ? (
+          <img src={profile.avatarUrl} alt="User Avatar" className="w-full h-full object-cover" />
+        ) : (
+          <FaUser className="w-12 h-12 text-gray-400" />
+        )}
+        <label htmlFor="avatar-upload" className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+          <FaUpload />
+        </label>
+        <input id="avatar-upload" type="file" className="hidden" />
+      </div>
+      <p className="mt-2 text-sm text-gray-500">Click to change avatar</p>
+    </div>
+
+    <div className="flex items-center justify-between mb-6">
+      <h2 className="text-2xl font-semibold text-gray-800">Edit Profile</h2>
+      <button
+        onClick={onSave}
+        disabled={isLoading}
+        className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 transition duration-200 disabled:bg-green-300"
+      >
+        {isLoading ? <FaSpinner className="animate-spin" /> : <FaSave />}
+        {isLoading ? "Saving..." : "Save"}
+      </button>
+    </div>
+
+    <div className="space-y-5">
+      {/* Dynamic fields */}
+      {Object.entries(profile).map(([key, value]) => {
+        // Don't render an input for avatarUrl
+        if (key === "avatarUrl") return null;
+
+        return (
+          <div key={key}>
+            <label className="block text-sm font-medium text-gray-600 capitalize">
+              {key.replace(/([A-Z])/g, " $1")}
+            </label>
+            {key === "bio" ? (
+              <textarea
+                name={key}
+                value={value}
+                onChange={onChange}
+                rows="3"
+                className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all text-gray-800"
+              />
+            ) : key === "gender" ? (
+              <div className="mt-2 flex space-x-4">
+                {["Male", "Female", "Other"].map((gender) => (
+                  <label key={gender} className="flex items-center space-x-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="gender"
+                      value={gender}
+                      checked={profile.gender === gender}
+                      onChange={onChange}
+                      className="form-radio h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                    />
+                    <span className="text-gray-700">{gender}</span>
+                  </label>
+                ))}
+              </div>
+            ) : (
+              <input
+                type="text"
+                name={key}
+                value={value}
+                onChange={onChange}
+                className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all text-gray-800"
+              />
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </>
+);
+
+// Main Profile component
+export default function Profile() {
+  const [isEditing, setIsEditing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [profile, setProfile] = useState({
+    fullName: "Prathamesh Katre",
+    email: "prathamesh@example.com",
+    phone: "+91 98765 43210",
+    role: "Frontend Developer",
+    location: "Pune, India",
+    gender: "Male",
+    bio: "Passionate web developer with expertise in React, Tailwind, and modern UI design.",
+    avatarUrl: null, // Placeholder for an avatar URL
+  });
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProfile((prev) => ({ ...prev, [name]: value }));
+    setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
-  // Save to localStorage
-  const toggleEdit = () => {
-    if (editMode) {
-      localStorage.setItem('bucketstudy-profile', JSON.stringify(profile));
-      
+  const handleSave = async () => {
+    setIsLoading(true);
+    try {
+      // Simulate an API call
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      console.log("Profile saved:", profile);
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Failed to save profile:", error);
+    } finally {
+      setIsLoading(false);
     }
-    setEditMode(!editMode);
   };
 
   return (
-    <div className="profile-wrapper h-full w-full relative">
-      <h2>My Profile</h2>
-
-      {/* Profile Header */}
-      <div className="profile-card">
-        <div className="avatar">
-          {(profile.firstName[0] || 'U') + (profile.lastName[0] || '')}
-        </div>
-        <div className="info">
-          <h3>{profile.firstName || "First Name"} {profile.lastName || "Last Name"}</h3>
-          <p>{profile.email || "example@email.com"}</p>
-        </div>
-        <button className="edit-btn" onClick={toggleEdit}>
-          {editMode ? <><FaSave /> Save</> : <><FaEdit /> Edit</>}
-        </button>
-      </div>
-
-      {/* About Section */}
-      <div className="profile-section">
-        <div className="section-header">
-          <h3>About</h3>
-        </div>
-        {editMode ? (
-          <textarea
-            id='profile_textarea'
-            name="about"
-            placeholder="Write something about yourself"
-            value={profile.about}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-6">
+      <div className="w-full max-w-2xl bg-white shadow-2xl rounded-2xl p-8 border border-gray-200 transition-all duration-300 hover:scale-[1.01] animate-fade-in">
+        {isEditing ? (
+          <ProfileForm
+            profile={profile}
             onChange={handleChange}
+            onSave={handleSave}
+            isLoading={isLoading}
           />
         ) : (
-          <p className="about-text">{profile.about || "Write something about yourself"}</p>
+          <ProfileDisplay
+            profile={profile}
+            onEdit={() => setIsEditing(true)}
+          />
         )}
-      </div>
-
-      {/* Personal Details */}
-      <div className="profile-section">
-        <div className="section-header">
-          <h3>Personal Details</h3>
-        </div>
-        <div className="personal-grid">
-          {[
-            ['First Name', 'firstName'],
-            ['Last Name', 'lastName'],
-            ['Email', 'email'],
-            ['Phone Number', 'phone'],
-            ['Gender', 'gender'],
-            ['Date of Birth', 'dob'],
-          ].map(([label, key]) => (
-            <div key={key}>
-              <strong>{label}</strong>
-              {editMode ? (
-                <input
-                  type="text"
-                  name={key}
-                  placeholder={`Enter ${label}`}
-                  value={profile[key]}
-                  onChange={handleChange}
-                />
-              ) : (
-                <p>{profile[key] || `Add ${label}`}</p>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
-};
-
-export default Profile;
+}
