@@ -3,51 +3,50 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-    overflow-x: hidden; /* prevent horizontal scroll if any */
-
+  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-
+/* Page background */
 .login-page {
   height: 100vh;
-  width: 100vw; /* Full width of the viewport */
-  background: linear-gradient(135deg, #2e003e, #4b004e, #72005f, #a1006f);
+  width: 100vw;
+  background: linear-gradient(135deg, #f5f0ff, #e9ddff, #f3e8ff);
+
+  /* background: #ffffff;  */
+  /* clean white background */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', sans-serif;
   padding: 20px;
-  margin: 0;
-  overflow: hidden;
-  /* margin-left: -4.5cm; */
 }
 
+/* Card styling */
 .login-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
   padding: 40px;
-  border-radius: 20px;
-  width: 100%;
   max-width: 400px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  color: #fff;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: slideFadeIn 0.8s ease-out;
 }
 
+/* Tabs */
 .login-tabs {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: 10px;
 }
-
 
 .login-tabs button {
   flex: 1;
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
-  color: #ccc;
+  color: #555;
   font-size: 16px;
   font-weight: bold;
   padding: 10px;
@@ -56,16 +55,16 @@ html, body {
 }
 
 .login-tabs button.active {
-  border-color: #ff69b4;
-  color: #ff69b4;
+  border-color: #6C0CE9; /* brand purple */
+  color: #6C0CE9;
 }
 
-
+/* Inputs */
 form input {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #ccc;
   margin-bottom: 20px;
   font-size: 14px;
   background: #fff;
@@ -74,9 +73,11 @@ form input {
 
 form input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #ff69b4;
+  border-color: #6C0CE9;
+  box-shadow: 0 0 0 2px #A37BFF;
 }
 
+/* Password wrapper */
 .password-wrapper {
   position: relative;
 }
@@ -89,12 +90,13 @@ form input:focus {
   color: #888;
 }
 
+/* Login button */
 .login-button {
   width: 100%;
-  background-color: #ff69b4;
+  background-color: #6C0CE9;
   border: none;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   color: white;
@@ -103,26 +105,30 @@ form input:focus {
 }
 
 .login-button:hover {
-  background-color: #ff85c1;
+  background-color: #A37BFF;
 }
 
+/* Links */
 .login-links {
   margin-top: 15px;
   text-align: center;
   font-size: 13px;
 }
 
-.login-links a {
-  color: #ff9bd4;
+.login-links a,
+.login-links span {
+  color: #6C0CE9;
   text-decoration: none;
-  margin: 0 5px;
+  cursor: pointer;
 }
 
-.login-links a:hover {
+.login-links a:hover,
+.login-links span:hover {
+  color: #A37BFF;
   text-decoration: underline;
 }
 
-
+/* Social login */
 .social-login {
   margin-top: 20px;
   display: flex;
@@ -140,13 +146,14 @@ form input:focus {
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
-  transition: transform 0.2s;
   border: none;
+  transition: transform 0.2s;
 }
 
 .google-login {
   background-color: #fff;
   color: #333;
+  border: 1px solid #ddd;
 }
 
 .github-login {
@@ -159,10 +166,7 @@ form input:focus {
   transform: scale(1.03);
 }
 
-
-
-
-
+/* Modal overlay */
 .blurred {
   filter: blur(4px);
   pointer-events: none;
@@ -195,12 +199,9 @@ form input:focus {
   font-size: 20px;
   color: white;
   cursor: pointer;
-} 
+}
 
-
-
-
-/* Add animation to login card */
+/* Animation */
 @keyframes slideFadeIn {
   0% {
     opacity: 0;
@@ -212,67 +213,10 @@ form input:focus {
   }
 }
 
-.login-card {
-  /* keep your existing styles... */
-  animation: slideFadeIn 0.8s ease-out;
-}
-
-
-
+/* Responsive */
 @media (max-width: 400px) {
-  .login-page {
-    margin-left: 0; /* remove the left margin */
-    padding: 10px;
-    align-items: flex-start;
-    padding-top: 60px;
-    width: 100wh;
-    margin-left: -0.4cm;
-
-  }
-
-  .login-card { 
-    max-width: 100%;
-    /* padding: 25px 20px; */
+  .login-card {
+    padding: 25px 20px;
     border-radius: 12px;
-    box-shadow: none;
-    margin-left: -1cm;
-    padding-left: -5px;
-  }
-
-  .login-tabs button {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  form input {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  .toggle-password {
-    top: 10px;
-    font-size: 14px;
-  }
-
-  .login-button {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .login-links {
-    font-size: 12px;
-  }
-
-  .social-login {
-    gap: 8px;
-  }
-
-  .social-login button {
-    font-size: 13px;
-    padding: 8px;
-  }
-
-  .close-modal {
-    font-size: 18px;
   }
 }

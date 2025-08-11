@@ -4,15 +4,11 @@
   box-sizing: border-box;
 }
 
+/* Page background - matches login page */
 .signup-wrapper {
   height: 100vh;
   width: 100vw;
-  /* ... */
-}
-.signup-wrapper {
-  height: 100vh;
-  width: 100vw; /* Full width of the viewport */
-  background: linear-gradient(135deg, #2e003e, #4b004e, #72005f, #a1006f);
+  background: linear-gradient(135deg, #f5f0ff, #e9ddff, #f3e8ff);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,27 +16,30 @@
   padding: 20px;
   margin: 0;
   overflow: hidden;
-  /* margin-left: -4.5cm; */
 }
 
+/* Signup card */
 .signup-form {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
+  border-radius: 16px;
   padding: 40px;
-  border-radius: 20px;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  color: #fff;
-
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: #000;
+  animation: slideFadeIn 0.8s ease-out;
 }
 
 .signup-form h2 {
   margin-bottom: 20px;
   text-align: center;
-  color: white
+  color: #6C0CE9; /* brand purple */
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* Inputs */
 .signup-form input {
   width: 100%;
   padding: 12px;
@@ -50,6 +49,13 @@
   font-size: 16px;
 }
 
+.signup-form input:focus {
+  outline: none;
+  border-color: #6C0CE9;
+  box-shadow: 0 0 0 2px #A37BFF;
+}
+
+/* Password toggle */
 .password-container {
   position: relative;
 }
@@ -66,18 +72,25 @@
   cursor: pointer;
 }
 
+/* Submit button */
 #submit {
   width: 100%;
   padding: 12px;
   color: white;
-  background-color: #ff69b4;
+  background-color: #6C0CE9; /* brand purple */
   border: none;
   border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
   margin-top: 15px;
+  transition: background 0.3s;
 }
 
+#submit:hover {
+  background-color: #A37BFF;
+}
+
+/* Error messages */
 .error {
   color: red;
   font-size: 14px;
@@ -85,24 +98,25 @@
   margin-bottom: 8px;
 }
 
+/* Login link */
 .login-link {
   margin-top: 10px;
   text-align: center;
-   font-size: 13px;
-} 
+  font-size: 13px;
+}
 
 .login-link a {
-  color: #ff9bd4;
+  color: #6C0CE9;
   text-decoration: none;
   margin: 0 5px;
 }
 
 .login-link a:hover {
   text-decoration: underline;
+  color: #A37BFF;
 }
 
-
-/* Add animation to signup card */
+/* Animation */
 @keyframes slideFadeIn {
   0% {
     opacity: 0;
@@ -114,28 +128,21 @@
   }
 }
 
-.signup-form {
-  /* keep your existing styles... */
-  animation: slideFadeIn 0.8s ease-out;
-}
-
-
+/* Mobile responsive */
 @media (max-width: 600px) {
   .signup-wrapper {
     padding: 10px;
-    margin-left: -20px; /* remove that -4.5cm left margin on small screens */
     align-items: flex-start;
     padding-top: 60px;
-    margin-right: 10px;
-    margin-bottom: 0px;
+  
   }
 
   .signup-form {
-    padding-left: 10px;
-    padding-right: 1cm;
+    padding: 25px 20px;
     max-width: 100%;
-    box-shadow: none; /* Optional: remove shadow for cleaner mobile look */
     border-radius: 12px;
+    box-shadow: none;
+   
   }
 
   .signup-form h2 {
@@ -156,3 +163,4 @@
     font-size: 12px;
   }
 }
+
