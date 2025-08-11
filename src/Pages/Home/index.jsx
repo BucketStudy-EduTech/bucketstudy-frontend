@@ -108,7 +108,7 @@ function Home() {
               ⏰ Limited Time Offer - Early Bird Pricing!
             </button>
           </span>
-          <button className="enroll-btn">View All Courses & Enroll</button>
+          <button className="enroll-btn"><a href="/dashboard/courses" >View All Courses & Enroll</a></button>
         </div>
 
         <div className="journey-section">

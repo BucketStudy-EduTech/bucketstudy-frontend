@@ -7,7 +7,7 @@ import ConfirmationModel from '../../components/ConfirmationModel';
 
 function ProfileDropdown() {
   const [open, setOpen] = useState(false);
-  const [showConfirm, setShowConfirm] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false); 
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -89,16 +89,16 @@ function ProfileDropdown() {
           )}
         </>
       ) : (
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           <Link
             to="/login"
-            className="px-3 py-1 border border-blue-500 text-blue-500 rounded hover:bg-blue-100"
+            className="px-3 py-1 border bg-gray-600 border-gray-700 text-white rounded-2xl hover:bg-gray-800"
           >
             Login
           </Link>
           <Link
             to="/signup"
-            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-3 py-1 bg-violet-500 text-white rounded-2xl hover:bg-violet-700"
           >
             Signup
           </Link>

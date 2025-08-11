@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import Home from './Pages/Home/index';
 import Nav from './Pages/Nav/index';
 import About from './Pages/About/index';
@@ -18,6 +19,10 @@ import CourseSection from './Pages/StudentDashboard/CoursesReg/CourseSection';
 
 
 function App() {
+  const location = useLocation();
+  const isDashboard = location.pathname.startsWith("/dashboard");
+
+
   return (
     <div className="app">
       <Nav />
@@ -54,7 +59,7 @@ function App() {
       
 
       {/* Footer */}
-      <Footer />
+      {!isDashboard && <Footer />}
     </div>
   );
 }
