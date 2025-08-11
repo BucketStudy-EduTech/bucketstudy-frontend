@@ -33,7 +33,7 @@ function CourseCard({ course }) {
   };
 
   return (
-    <div className=" mt-10 w-11/12  border-2 border-pink-300 sm:w-80 bg-white rounded-2xl shadow-xl m-4 transform hover:scale-105 hover:bg-amber-800 transition-transform duration-300 ease-in-out">
+    <div className=" mt-10 w-11/12  border-2 border-grey-300 sm:w-80 bg-white rounded-2xl shadow-xl m-4 transform hover:scale-105 hover:bg-amber-800 transition-transform duration-300 ease-in-out">
       <div className="p-6">
         {/* Course Info */}
         <div className="">
