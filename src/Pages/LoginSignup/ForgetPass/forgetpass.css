@@ -1,24 +1,44 @@
- /* Background Gradient inspired by Bucketstudy */
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #f5f0ff, #e9ddff, #f3e8ff); /* pastel background */
+}
+
 .forgot-container {
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #2e003e, #4b004e, #72005f, #a1006f);
+  background: linear-gradient(135deg, #f5f0ff, #e9ddff, #f3e8ff);
   font-family: 'Segoe UI', sans-serif;
   padding: 20px;
 }
 
-/* Glassmorphism + Entry Animation */
+
+/* Background Gradient matching login/signup */
+/* .forgot-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f0ff, #e9ddff, #f3e8ff);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+} */
+
+/* White card style with animation */
 .forgot-box {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
+  border-radius: 16px;
   padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-  color: white;
+  color: #000;
   animation: slideFadeIn 0.8s ease-out;
 }
 
@@ -37,13 +57,15 @@
 .forgot-box h2 {
   margin-bottom: 10px;
   font-size: 26px;
-  color: #fff;
+  color: #6C0CE9; /* brand purple */
+  text-align: center;
 }
 
 .forgot-box p {
   font-size: 14px;
-  color: #ddd;
+  color: #555;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Input styles */
@@ -51,8 +73,8 @@
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
-  border-radius: 10px;
-  border: none;
+  border-radius: 12px;
+  border: 1px solid #ccc;
   font-size: 14px;
   background-color: #fff;
   color: #333;
@@ -60,16 +82,17 @@
 
 .forgot-box input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #ff69b4;
+  border-color: #6C0CE9;
+  box-shadow: 0 0 0 2px #A37BFF;
 }
 
 /* Button styles */
 .forgot-box button {
   width: 100%;
-  background-color: #ff69b4;
+  background-color: #6C0CE9; /* brand purple */
   border: none;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: bold;
   color: white;
@@ -78,7 +101,7 @@
 }
 
 .forgot-box button:hover {
-  background-color: #ff85c1;
+  background-color: #A37BFF;
 }
 
 /* Back to login link */
@@ -86,7 +109,7 @@
   display: block;
   margin-top: 15px;
   text-align: center;
-  color: #ff9bd4;
+  color: #6C0CE9;
   font-size: 13px;
   text-decoration: none;
   transition: 0.2s;
@@ -94,4 +117,24 @@
 
 .back-link:hover {
   text-decoration: underline;
+  color: #A37BFF;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .forgot-box {
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  .forgot-box h2 {
+    font-size: 22px;
+  }
+
+  .forgot-box input,
+  .forgot-box button {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
