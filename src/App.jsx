@@ -16,7 +16,7 @@ import DashboardLayout from './components/DashboardLayout';
 import EnrolledCourses from './Pages/StudentDashboard/EnrolledCourses';
 import Settings from './Pages/StudentDashboard/Settings';
 import CourseSection from './Pages/StudentDashboard/CoursesReg/CourseSection';
-
+import StudentManagement from './Pages/AdminDashBoard/StudentManagement';
 
 function App() {
   const location = useLocation();
@@ -48,7 +48,7 @@ function App() {
           <Route path="/dashboard/settings" element={<Settings />} />
 
           <Route path="/dashboard/*" element={<CourseSection />} />
-      
+          <Route path="/dashboard/student-management" element={<StudentManagement/>} />
 
           
         </Route>

@@ -6,7 +6,7 @@ import { TbLayoutSidebarLeftCollapse } from "react-icons/tb";
 
 function Sidebar() {
   const [user, setUser] = useState({
-    accountType: "Student", 
+    accountType: "Admin", //Student 
   });
   const [loading, setLoading] = useState(false);
   const [confirmationModal, setConfirmationModal] = useState(null); 

@@ -8,9 +8,9 @@ export const sidebarLinks = [
   },
   {
     id: 2,
-    name: "Dashboard",
-    path: "/dashboard/instructor",
-    type: "Instructor",
+    name: "OverView",
+    path: "/dashboard/Admin-overview",
+    type: "Admin",
     icon: "VscDashboard"
   },
   {
@@ -27,6 +27,20 @@ export const sidebarLinks = [
     path: "/dashboard/enrolled-courses",
     icon: "VscBook",
     type: "Student", // Shown only for student accounts
+  },
+  {
+    id: 5,
+    name: "Student Management",
+    path: "/dashboard/student-management",
+    icon: "VscBroadcast",
+    type: "Admin", // Shown only for Admin accounts
+  },
+    {
+    id: 6,
+    name: "Course Management",
+    path: "/dashboard/course-management",
+    icon: "VscBook",
+    type: "Admin", // Shown only for Admin accounts
   },
   
   
