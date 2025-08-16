@@ -3,12 +3,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 /* Body Styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff0f6;
+    background: #ffffff;
     color: #333;
     line-height: 1.6;
 }

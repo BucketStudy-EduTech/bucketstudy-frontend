@@ -1,62 +1,62 @@
 
 .challenge-container {
   font-family: 'Poppins', sans-serif;
-background: linear-gradient(180deg, #e95791, #bc45d1, #5f2eea);
-
+  background: #f9fafb; /* light neutral background */
   color: #333;
   padding: 60px 20px;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 16px;
   max-width: 1200px;
   margin: 30px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* soft shadow */
+  border: 1px solid #e5e7eb; /* soft border */
 }
 
+/* Header */
 .challenge-header h1 {
-  font-size: 2.8rem;
-  color: #2d2d2d;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #1e3a8a, #3b82f6, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
 }
 
 .challenge-header p {
   font-size: 1.1rem;
-  color: white;
+  color: #6b7280; /* neutral gray */
 }
 
+/* Section Heading */
 .challenge-section h2 {
-  font-size: 2rem;
-  color: #444;
-  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: #111827;
+  margin-bottom: 25px;
   margin-top: 40px;
 }
 
+/* Card */
 .challenge-card {
   background: #ffffff;
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 16px;
+  padding: 28px;
   max-width: 800px;
   margin: 0 auto;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .challenge-card:hover {
-  transform: scale(1.01);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* Status tags */
 .status-tags {
   display: flex;
   justify-content: center;
   gap: 12px;
   margin-bottom: 20px;
-}
-
-.completed-tag,
-.team-event-tag {
-  font-size: 0.75rem;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 .completed-tag {
@@ -65,42 +65,45 @@ background: linear-gradient(180deg, #e95791, #bc45d1, #5f2eea);
 }
 
 .team-event-tag {
-  background-color: #e0e7ff;
-  color: #4f46e5;
+  background-color: #dbeafe;
+  color: #1d4ed8;
 }
 
+/* Titles */
 .challenge-title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-top: 10px;
-  color: #222;
+  color: #1f2937;
 }
 
 .level-info {
   font-size: 0.95rem;
-  color: #777;
+  color: #6b7280;
   margin-bottom: 20px;
 }
 
+/* Prize box */
 .prize-box {
-  border: 2px dashed #999;
+  border: 1.5px dashed #cbd5e1;
   border-radius: 12px;
   padding: 16px;
   width: 180px;
   margin: 0 auto 30px;
-  background-color: #f9f9f9;
+  background-color: #f9fafb;
 }
 
 .prize-amount {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #10b981;
+  color: #0d9488;
 }
 
 .prize-note {
-  font-size: 0.75rem;
-  color: #666;
+  font-size: 0.8rem;
+  color: #6b7280;
 }
 
+/* Info grid */
 .info-grid {
   display: flex;
   justify-content: space-around;
@@ -115,31 +118,21 @@ background: linear-gradient(180deg, #e95791, #bc45d1, #5f2eea);
 
 .info-label {
   font-size: 0.85rem;
-  color: #888;
+  color: #6b7280;
 }
 
 .info-value {
   font-size: 1.2rem;
   font-weight: bold;
+  color: #111827;
 }
 
 .info-subtext {
   font-size: 0.75rem;
-  color: #999;
+  color: #9ca3af;
 }
 
-.blue {
-  color: #3b82f6;
-}
-
-.purple {
-  color: #8b5cf6;
-}
-
-.orange {
-  color: #fb923c;
-}
-
+/* Buttons */
 .learn-more-btn,
 .register-btn {
   display: inline-block;
@@ -154,22 +147,22 @@ background: linear-gradient(180deg, #e95791, #bc45d1, #5f2eea);
 }
 
 .learn-more-btn {
-  background-color: #4f46e5;
+  background-color: #2563eb;
   color: white;
   margin-right: 12px;
 }
 
 .learn-more-btn:hover {
-  background-color: #6366f1;
+  background-color: #1e40af;
 }
 
 .register-btn {
-  background-color: #10b981;
+  background-color: #059669;
   color: white;
 }
 
 .register-btn:hover {
-  background-color: #059669;
+  background-color: #047857;
 }
 
 /* Responsive */
@@ -192,7 +185,7 @@ background: linear-gradient(180deg, #e95791, #bc45d1, #5f2eea);
 
 @media (max-width: 480px) {
   .challenge-header h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
   .challenge-header p {
@@ -200,25 +193,21 @@ background: linear-gradient(180deg, #e95791, #bc45d1, #5f2eea);
   }
 
   .challenge-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .challenge-title {
-    font-size: 1.3rem;
-  }
-
-  .info-item {
-    min-width: auto;
+    font-size: 1.2rem;
   }
 
   .prize-box {
     width: 100%;
-    max-width: 250px;
+    max-width: 240px;
   }
 
-  .challenge-container{
-    width: 90%;
-    margin-left: 1px;
-    margin-right: 1px; 
+  .challenge-container {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
