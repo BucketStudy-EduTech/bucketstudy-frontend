@@ -1,0 +1,106 @@
+.course-management {
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #8f1065, #db8625, #124ba7);
+  background-size: 300% 300%;
+  animation: gradientBG 6s ease infinite;
+  color: white;
+  font-family: "Poppins";
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.add-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.course-table {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.table-header, .table-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 12px 15px;
+}
+
+.table-header {
+  background: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.table-row {
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 2px;
+  transition: 0.3s;
+}
+.table-row:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.status.published {
+  color: rgb(95, 11, 121);
+  font-weight: bold;
+}
+.status.draft {
+  color: rgb(8, 8, 7);
+  font-weight: bold;
+}
+
+.actions button {
+  margin-right: 5px;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+.edit-btn {
+  background: #9333ea;
+}
+.delete-btn {
+  
+  background: #ae08f0;
+}
+.edit-btn:hover {
+  background: #7e22ce;
+}
+.delete-btn:hover {
+background: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-header, .table-row {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 10px;
+  }
+}
