@@ -1,0 +1,64 @@
+.trending-courses {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-top: 10px;
+  border-radius: 12px;
+  color: black;
+}
+
+/* .trending-courses h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  align-items: center;
+} */
+
+.trending-courses ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trending-courses li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.trending-courses li:last-child {
+  border-bottom: none;
+}
+
+.trending-courses li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.course-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.course-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.course-name {
+  font-weight: 500;
+}
+
+.enrollments {
+  color: #555;
+  font-size: 14px;
+}
+
+h4{
+  font-size: x-large;
+}

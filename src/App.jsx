@@ -17,6 +17,7 @@ import EnrolledCourses from './Pages/StudentDashboard/EnrolledCourses';
 import Settings from './Pages/StudentDashboard/Settings';
 import CourseSection from './Pages/StudentDashboard/CoursesReg/CourseSection';
 import StudentManagement from './Pages/AdminDashBoard/StudentManagement';
+import AdminOverview from "./Pages/AdminDashBoard/adminOverview/AdminOverview";
 
 function App() {
   const location = useLocation();
@@ -49,6 +50,7 @@ function App() {
 
           <Route path="/dashboard/*" element={<CourseSection />} />
           <Route path="/dashboard/student-management" element={<StudentManagement/>} />
+          <Route path="/dashboard/Admin-overview" element={<AdminOverview/>} />
 
           
         </Route>

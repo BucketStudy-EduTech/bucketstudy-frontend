@@ -1,0 +1,34 @@
+.stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(20,20,60,0.06);
+  border: 1px solid #eef0f5;
+}
+.stat-title {
+  margin: 0;
+  color: #6366f1;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+.stat-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 6px;
+}
+.stat-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111827;
+}
+.stat-trend {
+  font-size: 13px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f3f4f6;
+}
+.stat-trend.up { color: #059669; background: #ecfdf5; }
+.stat-trend.down { color: #dc2626; background: #fef2f2; }
