@@ -1,10 +1,10 @@
 .course-management {
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, #8f1065, #db8625, #124ba7);
+  background: linear-gradient(180deg, #fafbff 0%, #f4f6fb 100%);
   background-size: 300% 300%;
   animation: gradientBG 6s ease infinite;
-  color: white;
+  color: black;
   font-family: "Poppins";
 }
 
@@ -31,7 +31,7 @@ header h1 {
   border: none;
   padding: 10px 18px;
   border-radius: 20px;
-  color: white;
+  color: rgb(77, 67, 67);
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;

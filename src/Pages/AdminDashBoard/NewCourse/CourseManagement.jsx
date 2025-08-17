@@ -46,7 +46,7 @@ export default function CourseManagement() {
         </button>
       </header>
 
-      <div className="course-table">
+      <div className="course-table border-gray-500 border">
         <div className="table-header">
           <span>Title</span>
           <span>Instructor</span>
@@ -57,7 +57,7 @@ export default function CourseManagement() {
         </div>
 
         {courses.map((course) => (
-          <div className="table-row" key={course.id}>
+          <div className="table-row border-b-2 border-gray-300" key={course.id}>
             <span>{course.title}</span>
             <span>{course.instructor}</span>
             <span>{course.price === 0 ? "Free" : `₹${course.price}`}</span>
