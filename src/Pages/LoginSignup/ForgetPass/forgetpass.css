@@ -13,7 +13,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #f5f0ff, #e9ddff, #f3e8ff);
   font-family: 'Segoe UI', sans-serif;
   padding: 20px;
 }

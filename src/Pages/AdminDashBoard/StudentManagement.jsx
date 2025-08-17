@@ -46,10 +46,10 @@ const students = [
     activity: ["Updated profile", "Enrolled in Tailwind CSS Mastery"]
   },
   {
-    id: 1,
+    id: 4,
     name: "Shreya Jadhav",
     email: "Shreyajadhav@gmail.com",
-    avatar: "https://i.pravatar.cc/100?img=5",
+    avatar: "https://i.pravatar.cc/100?img=8",
     status: "Active",
     progress: 40,
     courses: [
@@ -62,7 +62,7 @@ const students = [
   },
 ];
 
-const App = () => {
+const StudentManagement = () => {
   const [selectedStudent, setSelectedStudent] = useState(null);
 
   // Close the slide-over panel
@@ -72,9 +72,7 @@ const App = () => {
     <div className="p-4 sm:p-6 bg-gray-50 min-h-screen text-gray-950">
       <h1 className="text-2xl font-bold mb-6">Student Management</h1>
 
-      {/* Responsive Layout for Students */}
-
-      
+      {/* Desktop Table */}
       <div className="hidden lg:block">
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
           <table className="w-full text-left border-collapse">
@@ -128,7 +126,7 @@ const App = () => {
         </div>
       </div>
 
-      {/* Mobile View (hidden on larger screens) */}
+      {/* Mobile Cards */}
       <div className="lg:hidden">
         <div className="grid gap-4">
           {students.map((student) => (
@@ -137,7 +135,6 @@ const App = () => {
               className="bg-white p-4 rounded-lg shadow-xl cursor-pointer"
               onClick={() => setSelectedStudent(student)}
             >
-              {/* Student and Email */}
               <div className="flex items-center gap-4 mb-4">
                 <img
                   src={student.avatar}
@@ -149,8 +146,6 @@ const App = () => {
                   <p className="text-gray-500 text-sm">{student.email}</p>
                 </div>
               </div>
-
-              {/* Status and Progress */}
               <div className="flex flex-col gap-2">
                 <div>
                   <h4 className="font-medium text-sm text-gray-700">Status</h4>
@@ -179,35 +174,35 @@ const App = () => {
         </div>
       </div>
 
-      {/* Slide-over Student Details (Modal) */}
+      {/* Student Details Modal */}
       {selectedStudent && (
         <div
-          className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50 p-4"
+          className="fixed inset-0 bg-gradient-to-br from-violet-200/70 to-indigo-300/70 backdrop-blur-sm flex justify-center items-center z-50 p-4"
           onClick={handleClose}
         >
           <div
-            className="bg-white w-full sm:max-w-md h-auto max-h-[90vh] rounded-lg shadow-2xl overflow-y-auto transform transition-transform duration-300 scale-100"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            className="bg-white w-full sm:max-w-md rounded-2xl shadow-2xl overflow-hidden transform transition-transform duration-300 scale-100"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <div className="flex justify-end p-4 border-b">
+            {/* Header with gradient */}
+            <div className="flex justify-between items-center p-4 bg-gradient-to-r from-violet-500 to-indigo-600 text-white">
+              <h2 className="font-semibold text-lg">{selectedStudent.name}</h2>
               <button
-                className="text-gray-500 hover:text-gray-800 text-2xl"
+                className="text-white text-2xl hover:text-gray-200"
                 onClick={handleClose}
               >
                 &times;
               </button>
             </div>
 
-            {/* Profile */}
-            <div className="p-6">
-              <div className="flex flex-col items-center text-center mb-6">
+            {/* Body */}
+            <div className="p-6 space-y-6 overflow-y-hidden">
+              <div className="flex flex-col items-center text-center">
                 <img
                   src={selectedStudent.avatar}
                   alt={selectedStudent.name}
-                  className="w-24 h-24 rounded-full mb-3"
+                  className="w-24 h-24 rounded-full mb-3 shadow-md"
                 />
-                <h2 className="text-xl font-semibold">{selectedStudent.name}</h2>
                 <p className="text-gray-500 text-sm">{selectedStudent.email}</p>
                 <span
                   className={`mt-2 px-3 py-1 text-xs rounded-full ${
@@ -223,13 +218,14 @@ const App = () => {
                 </button>
               </div>
 
-              {/* Enrolled Courses */}
-              <div className="mb-6">
+              {/* Courses */}
+              <div>
                 <h3 className="text-lg font-semibold mb-3">Enrolled Courses</h3>
                 {selectedStudent.courses.map((course, idx) => (
                   <div key={idx} className="mb-3">
                     <div className="flex justify-between text-sm font-medium mb-1">
                       <span>{course.title}</span>
+                      <span>{course.progress}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
@@ -242,13 +238,13 @@ const App = () => {
               </div>
 
               {/* Payments */}
-              <div className="mb-6">
+              <div>
                 <h3 className="text-lg font-semibold mb-1">Payments</h3>
                 <p>Total Paid: {selectedStudent.payments.total}</p>
                 <p>Last Payment: {selectedStudent.payments.lastPayment}</p>
               </div>
 
-              {/* Activity Log */}
+              {/* Activity */}
               <div>
                 <h3 className="text-lg font-semibold mb-2">Activity Log</h3>
                 <ul className="list-disc list-inside text-gray-600">
@@ -265,4 +261,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default StudentManagement;

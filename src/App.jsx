@@ -18,7 +18,7 @@ import Settings from './Pages/StudentDashboard/Settings';
 import CourseSection from './Pages/StudentDashboard/CoursesReg/CourseSection';
 import StudentManagement from './Pages/AdminDashBoard/StudentManagement';
 import AdminOverview from "./Pages/AdminDashBoard/adminOverview/AdminOverview";
-import NewCourse from "./Pages/AdminDashBoard/NewCourse/NewCourse";
+import NewCourse from "./Pages/AdminDashBoard/NewCourse/CourseManagement";
 
 function App() {
   const location = useLocation();
@@ -52,7 +52,7 @@ function App() {
           <Route path="/dashboard/*" element={<CourseSection />} />
           <Route path="/dashboard/student-management" element={<StudentManagement/>} />
           <Route path="/dashboard/Admin-overview" element={<AdminOverview/>} />
-          <Route path="/dashboard/NewCourse" element={<NewCourse/>} />
+          <Route path="/dashboard/course-management" element={<NewCourse/>} />
 
           
         </Route>
