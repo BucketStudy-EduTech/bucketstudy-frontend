@@ -28,20 +28,29 @@ export const sidebarLinks = [
     icon: "VscBook",
     type: "Student", // Shown only for student accounts
   },
-  {
+   {
     id: 5,
+    name: "Admin Analytics",
+    path: "/dashboard/analytical",
+    icon: "VscCircuitBoard",
+    type: "Admin", // Shown only for Admin accounts
+  },
+  {
+    id: 6,
     name: "Student Management",
     path: "/dashboard/student-management",
     icon: "VscBroadcast",
     type: "Admin", // Shown only for Admin accounts
   },
     {
-    id: 6,
+    id: 7,
     name: "Course Management",
     path: "/dashboard/course-management",
     icon: "VscBook",
     type: "Admin", // Shown only for Admin accounts
   },
+
+ 
   
   
 ];
