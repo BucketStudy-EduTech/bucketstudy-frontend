@@ -10,6 +10,8 @@
   margin: 30px auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* soft shadow */
   border: 1px solid #e5e7eb; /* soft border */
+background: linear-gradient(to right, #ff5c8a, #ff99b3);
+
 }
 
 /* Header */
