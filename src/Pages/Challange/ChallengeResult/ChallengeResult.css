@@ -50,6 +50,7 @@
   justify-content: center;
   gap: 25px;
   flex-wrap: wrap;
+  justify-items: center;
 }
 
 .team-card {
@@ -60,6 +61,9 @@
   text-align: center;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .team-card:hover {
@@ -71,8 +75,9 @@
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 15px;
+  margin: 0 auto 15px;  /* center horizontally */
   border: 3px solid #dbeafe;
+  display: block;       /* 🔑 Important */
 }
 
 .team-card h3 {
