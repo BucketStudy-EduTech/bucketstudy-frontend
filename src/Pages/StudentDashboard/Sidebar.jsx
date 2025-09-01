@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sidebarLinks } from "../../data/dashboard-links";
@@ -6,7 +7,7 @@ import { TbLayoutSidebarLeftCollapse } from "react-icons/tb";
 
 function Sidebar() {
   const [user, setUser] = useState({
-    accountType: "Admin", //Student 
+    accountType: "Student", //Student 
   });
   const [loading, setLoading] = useState(false);
   const [confirmationModal, setConfirmationModal] = useState(null); 

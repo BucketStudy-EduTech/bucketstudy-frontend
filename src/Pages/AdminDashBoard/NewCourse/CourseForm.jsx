@@ -4,22 +4,29 @@ import "./CourseForm.css";
 export default function CourseForm({ onClose, onSave, course }) {
   const [formData, setFormData] = useState({
     title: "",
-    instructor: "",
+    description: "",
+    duration: 0,
+    instructor: 0, // Note: instructor is an integer in your backend model
     price: 0,
-    enrolled: 0,
     status: "Draft",
-    description: ""
   });
 
   useEffect(() => {
     if (course) {
-      setFormData(course);
+      setFormData({
+        ...course,
+        status: course.status || "Draft", // Set a default if status is null
+      });
     }
   }, [course]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    // Handle number inputs correctly
+    const val = (name === "price" || name === "duration" || name === "instructor")
+      ? Number(value)
+      : value;
+    setFormData({ ...formData, [name]: val });
   };
 
   const handleSubmit = (e) => {
@@ -45,9 +52,9 @@ export default function CourseForm({ onClose, onSave, course }) {
             required
           />
 
-          <label>Instructor</label>
+          <label>Instructor ID</label>
           <input
-            type="text"
+            type="number"
             name="instructor"
             value={formData.instructor}
             onChange={handleChange}
@@ -62,11 +69,11 @@ export default function CourseForm({ onClose, onSave, course }) {
             onChange={handleChange}
           />
 
-          <label>Enrolled Students</label>
+          <label>Duration (hours)</label>
           <input
             type="number"
-            name="enrolled"
-            value={formData.enrolled}
+            name="duration"
+            value={formData.duration}
             onChange={handleChange}
           />
 
