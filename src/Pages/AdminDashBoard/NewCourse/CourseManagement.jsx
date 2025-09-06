@@ -1,14 +1,15 @@
+
 import React, { useState, useEffect } from "react";
 import "./CourseManagement.css";
 import CourseForm from "./CourseForm";
-import { getAllCourses, createCourse, updateCourse, deleteCourse } from "../../../api/courseApi"; // Import API functions
+import { getAllCourses, createCourse, updateCourse, deleteCourse } from "../../../api/courseApi";
 
 export default function CourseManagement() {
   const [courses, setCourses] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingCourse, setEditingCourse] = useState(null);
 
-  const fetchAllCourses = async () => {
+  const fetchCourses = async () => {
     try {
       const data = await getAllCourses();
       setCourses(data);
@@ -18,7 +19,7 @@ export default function CourseManagement() {
   };
 
   useEffect(() => {
-    fetchAllCourses();
+    fetchCourses();
   }, []);
 
   const handleAdd = () => {
@@ -29,14 +30,13 @@ export default function CourseManagement() {
   const handleSave = async (courseData) => {
     try {
       if (editingCourse) {
-        // The id will now be a String, sent from the form
         await updateCourse(courseData.id, courseData);
       } else {
         await createCourse(courseData);
       }
       setShowForm(false);
       setEditingCourse(null);
-      fetchAllCourses(); // Re-fetch all courses to update the list
+      fetchCourses();
     } catch (error) {
       console.error("Error saving course:", error);
     }
@@ -44,8 +44,8 @@ export default function CourseManagement() {
 
   const handleDelete = async (id) => {
     try {
-      await deleteCourse(id); // The 'id' here will now be a String
-      fetchAllCourses(); // Re-fetch all courses after deletion
+      await deleteCourse(id);
+      fetchCourses();
     } catch (error) {
       console.error("Error deleting course:", error);
     }
@@ -70,18 +70,23 @@ export default function CourseManagement() {
           <span>Title</span>
           <span>Instructor</span>
           <span>Price</span>
-          <span>Enrolled</span>
+          <span>Duration</span>
+          <span>Skills</span> {/* Add new header for skills */}
           <span>Status</span>
           <span>Actions</span>
         </div>
 
         {courses.map((course) => (
-          // The key should be the String ID
           <div className="table-row border-b-2 border-gray-300" key={course.id}>
             <span>{course.title}</span>
             <span>{course.instructor}</span>
             <span>{course.price === 0 ? "Free" : `₹${course.price}`}</span>
-            <span>{course.enrolled}</span>
+            <span>{course.duration} hrs</span>
+            <span>
+              {course.skills && course.skills.length > 0
+                ? course.skills.join(", ")
+                : "N/A"}
+            </span> {/* Display skills */}
             <span className={`status ${course.status?.toLowerCase()}`}>{course.status}</span>
             <span className="actions">
               <button onClick={() => handleEdit(course)} className="edit-btn">Edit</button>

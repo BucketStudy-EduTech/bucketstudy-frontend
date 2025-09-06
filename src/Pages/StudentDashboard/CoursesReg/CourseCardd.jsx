@@ -1,85 +1,93 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function CourseCard({ course }) {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    mode: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    mode: "",
+    message: "",
   });
 
   const toggleForm = () => {
     setShowForm((prev) => !prev);
     setSubmitted(false);
-    setFormData({ name: '', email: '', phone: '', mode: '', message: '' });
+    setFormData({ name: "", email: "", phone: "", mode: "", message: "" });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
-    setFormData({ name: '', email: '', phone: '', mode: '', message: '' });
+    setFormData({ name: "", email: "", phone: "", mode: "", message: "" });
   };
 
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   return (
-    <div className=" mt-10 w-11/12  border-2 border-grey-300 sm:w-80 bg-white rounded-2xl shadow-xl m-4 transform hover:scale-105 hover:bg-amber-800 transition-transform duration-300 ease-in-out">
-      <div className="p-6">
-        {/* Course Info */}
-        <div className="">
-          <h3 className="text-2xl font-extrabold text-gray-900 mb-2">{course.name}</h3>
-          <p className="text-sm text-gray-500 font-medium">
-            <span className="font-semibold text-gray-700">Tutor:</span> {course.tutor}
+    // Removed max-h-70 to allow the card to expand
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-200 
+    overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl 
+    transition-all duration-300 flex flex-col h-full">
+      
+      {/* Header */}
+      <div className="bg-gradient-to-r from-purple-600 to-indigo-500 text-white p-5 ">
+        <h3 className="text-xl font-bold line-clamp-1">{course.title}</h3>
+        <p className="text-sm opacity-90">Instructor ID: {course.instructor}</p>
+      </div>
+
+      {/* Card Body */}
+      <div className="p-5 flex-1 flex flex-col justify-between">
+        <div className="space-y-2">
+          <p className="text-sm text-gray-600">
+            <span className="font-semibold text-gray-800">Duration:</span>{" "}
+            {course.duration} hours
           </p>
-          <p className="text-sm text-gray-500 font-medium">
-            <span className="font-semibold text-gray-700">Duration:</span> {course.duration}
+          <p className="text-sm text-gray-600">
+            <span className="font-semibold text-gray-800">Price:</span>{" "}
+            {course.price === 0 ? (
+              <span className="text-green-600 font-semibold">Free</span>
+            ) : (
+              `₹${course.price}`
+            )}
           </p>
-          <p className="text-sm text-gray-500 font-medium">
-            <span className="font-semibold text-gray-700">Start Date:</span> {course.startDate}
-          </p>
-          <p className="text-sm text-gray-500 font-medium">
-            <span className="font-semibold text-gray-700">Mode:</span> {course.mode}
-          </p>
-          <p className="text-sm text-gray-600 mt-3 line-clamp-3">
+          <p className="text-sm text-gray-500 mt-3 line-clamp-3">
             {course.description}
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex justify-between items-center space-x-2 mt-4">
+        <div className="flex gap-3 mt-5">
           <Link
             to={`/dashboard/courses/${course.id}`}
-            className="flex-1 text-center bg-gray-200 text-gray-800 text-sm font-semibold px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200"
+            className="flex-1 text-center bg-gray-100 text-gray-800 text-sm font-semibold px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
           >
             Details
           </Link>
-
           <button
             onClick={toggleForm}
-            className="flex-1 text-center bg-purple-600 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-200 shadow-md"
+            className="flex-1 text-center bg-purple-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-md"
           >
-            {showForm ? 'Close' : 'Register'}
+            {showForm ? "Close" : "Register"}
           </button>
         </div>
 
         {/* Registration Form */}
         {showForm && (
-          <div className="mt-6 bg-purple-50 p-5 rounded-xl border border-purple-200 animate-fadeIn">
+          <div className="mt-6 bg-purple-50 p-5 rounded-xl border border-purple-200 animate-fadeIn lg:w-3xl">
             <h4 className="text-lg font-bold text-purple-800 mb-4">
-              Register for {course.name}
+              Register for {course.title}
             </h4>
 
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-4" onSubmit={handleSubmit}> 
               <input
                 type="text"
                 name="name"
@@ -111,7 +119,7 @@ function CourseCard({ course }) {
                 className="w-full p-3 text-sm bg-gray-100 border border-gray-300 rounded-lg text-gray-600 cursor-not-allowed"
                 disabled
               >
-                <option>{course.name}</option>
+                <option>{course.title}</option>
               </select>
               <select
                 name="mode"

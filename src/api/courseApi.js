@@ -48,4 +48,15 @@ export const deleteCourse = async (id) => {
   }
 };
 
+
+export const getCourseById = async (id) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/getCourseById/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Error fetching course with ID ${id}:`, error);
+        throw error;
+    }
+};
+
 // Add other API calls as needed, e.g., getCourseById, getCoursesByInstructor, etc.

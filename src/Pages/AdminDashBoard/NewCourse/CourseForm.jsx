@@ -6,32 +6,48 @@ export default function CourseForm({ onClose, onSave, course }) {
     title: "",
     description: "",
     duration: 0,
-    instructor: 0, // Note: instructor is an integer in your backend model
+    instructor: 0,
     price: 0,
     status: "Draft",
+    skills: "", // Skills input as comma-separated string
   });
 
   useEffect(() => {
     if (course) {
+      // When editing, convert the skills array to a comma-separated string
       setFormData({
         ...course,
-        status: course.status || "Draft", // Set a default if status is null
+        status: course.status || "Draft",
+        skills: course.skills ? course.skills.join(", ") : "",
       });
     }
   }, [course]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // Handle number inputs correctly
-    const val = (name === "price" || name === "duration" || name === "instructor")
-      ? Number(value)
-      : value;
+    const val =
+      name === "price" || name === "duration" || name === "instructor"
+        ? Number(value)
+        : value;
     setFormData({ ...formData, [name]: val });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
+
+    // Convert the comma-separated string to an array before saving
+    const skillsArray = formData.skills
+      .split(",")
+      .map((skill) => skill.trim())
+      .filter((skill) => skill !== ""); // Remove empty values
+
+    // Create the final object to send to the backend
+    const dataToSave = {
+      ...formData,
+      skills: skillsArray,
+    };
+
+    onSave(dataToSave);
   };
 
   return (
@@ -39,7 +55,9 @@ export default function CourseForm({ onClose, onSave, course }) {
       <div className="form-container">
         <div className="form-header">
           <h2>{course ? "Edit Course" : "Add New Course"}</h2>
-          <button className="close-btn" onClick={onClose}>✕</button>
+          <button className="close-btn" onClick={onClose}>
+            ✕
+          </button>
         </div>
 
         <form onSubmit={handleSubmit} className="form-body">
@@ -87,6 +105,15 @@ export default function CourseForm({ onClose, onSave, course }) {
             <option value="Published">Published</option>
           </select>
 
+          {/* Skills input */}
+          <label>Skills (comma-separated)</label>
+          <input
+            type="text"
+            name="skills"
+            value={formData.skills}
+            onChange={handleChange}
+          />
+
           <label>Description</label>
           <textarea
             name="description"
@@ -95,7 +122,11 @@ export default function CourseForm({ onClose, onSave, course }) {
           ></textarea>
 
           <div className="form-actions">
-            <button type="button" className="cancel-btn" onClick={onClose}>
+            <button
+              type="button"
+              className="cancel-btn"
+              onClick={onClose}
+            >
               Cancel
             </button>
             <button type="submit" className="save-btn">
