@@ -1,40 +1,46 @@
-
-import React, { useState } from 'react';
-import './Login.css';
-import { FaGoogle, FaGithub } from 'react-icons/fa';
-import ForgotPassword from '../ForgetPass/Forgetpass'; 
+import React, { useState } from "react";
+import "./Login.css";
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import ForgotPassword from "../ForgetPass/Forgetpass";
+import { useAuth } from "../../../context/AuthContext"; // Use AuthContext
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [role, setRole] = useState('student');
   const [showPassword, setShowPassword] = useState(false);
   const [showForgot, setShowForgot] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useAuth(); // Use the login function from AuthContext
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
+      // Redirection is handled by the login function in AuthContext
+    } catch (err) {
+      console.error("Login failed:", err);
+      alert("Invalid email or password.");
+    }
+  };
 
   return (
-    
     <div className="login-page">
-      <div className={`login-card ${showForgot ? 'blurred' : ''}`}> 
-        <div className="login-tabs">
-          <button
-            className={role === 'student' ? 'active' : ''}
-            onClick={() => setRole('student')}
-          >
-            Student
-          </button>
-          <button
-            className={role === 'admin' ? 'active' : ''}
-            onClick={() => setRole('admin')}
-          >
-            Admin
-          </button>
-        </div>
-
-        <form>
-          <input type="email" placeholder="Email" required />
+      <div className={`login-card ${showForgot ? "blurred" : ""}`}>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <div className="password-wrapper">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <span
               className="toggle-password"
@@ -50,7 +56,13 @@ const Login = () => {
         </form>
 
         <div className="login-links">
-          <span onClick={() => setShowForgot(true)} style={{ cursor: 'pointer' }}>Forgot Password?</span> | <a href="/Signup">Register</a>
+          <span
+            onClick={() => setShowForgot(true)}
+            style={{ cursor: "pointer" }}
+          >
+            Forgot Password?
+          </span>{" "}
+          | <Link to="/signup">Register</Link>
         </div>
 
         <div className="social-login">
@@ -67,7 +79,12 @@ const Login = () => {
         <div className="modal-overlay">
           <div className="modal-content">
             <ForgotPassword />
-            <button className="close-modal" onClick={() => setShowForgot(false)}>✖</button>
+            <button
+              className="close-modal"
+              onClick={() => setShowForgot(false)}
+            >
+              ✖
+            </button>
           </div>
         </div>
       )}
@@ -76,4 +93,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -1,46 +1,35 @@
 import React, { useState } from "react";
-import "./Signup.css"; 
+import { Link } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext"; // Use AuthContext
+import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import "./Signup.css";
 
 function Signup() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     password: "",
-    confirmPassword: "",
+    role: "STUDENT", 
   });
 
-  const [errors, setErrors] = useState({});
+  const { register } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const validate = () => {
-    let newErrors = {};
-
-    if (!formData.name.trim()) newErrors.name = "Full Name is required";
-    if (!formData.email.includes("@")) newErrors.email = "Invalid email";
-    if (!/^\d{10}$/.test(formData.phone)) newErrors.phone = "Phone must be 10 digits";
-    if (formData.password.length < 6)
-      newErrors.password = "Password must be at least 6 characters";
-    if (formData.password !== formData.confirmPassword)
-      newErrors.confirmPassword = "Passwords do not match";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      alert("Signup successful!");
-     
+    try {
+      await register(formData);
+      toast.success("Signup successful! Please log in.");
+    } catch (err) {
+      toast.error(err.response?.data?.error || "Signup failed");
     }
   };
 
@@ -52,62 +41,57 @@ function Signup() {
         <input
           type="text"
           name="name"
-          placeholder="Full Name"
+          placeholder="Enter your name"
           value={formData.name}
           onChange={handleChange}
+          required
         />
-        {errors.name && <p className="error">{errors.name}</p>}
-
         <input
           type="email"
           name="email"
-          placeholder="Email Address"
+          placeholder="Enter your email"
           value={formData.email}
           onChange={handleChange}
+          required
         />
-        {errors.email && <p className="error">{errors.email}</p>}
-
-        <input
-          type="text"
-          name="phone"
-          placeholder="Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
-        />
-        {errors.phone && <p className="error">{errors.phone}</p>}
 
         <div className="password-container">
           <input
             type={showPassword ? "text" : "password"}
             name="password"
-            placeholder="Password"
+            placeholder="Enter your password"
             value={formData.password}
             onChange={handleChange}
+            required
           />
-          <span onClick={togglePasswordVisibility} className="toggle-icon">
-            {showPassword ? "🙈" : "👁️"}
+          <span
+            className="toggle-icon"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
-        {errors.password && <p className="error">{errors.password}</p>}
 
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={formData.confirmPassword}
+        <select
+          name="role"
+          value={formData.role}
           onChange={handleChange}
-        />
-        {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+          className="signup-select"
+        >
+          <option value="STUDENT">Student</option>
+          <option value="ADMIN">Admin</option>
+        </select>
 
-        <button id="submit" type="submit">Register</button>
+        <button id="submit" type="submit">
+          Signup
+        </button>
 
-        <p className="login-link">
-          Already registered? <a href="/login">Login here</a>
-        </p>
+        <div className="login-link">
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
       </form>
     </div>
   );
 }
 
 export default Signup;
-

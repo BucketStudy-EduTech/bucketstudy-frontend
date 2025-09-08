@@ -15,7 +15,7 @@ import Signup from './Pages/LoginSignup/Signup/Signup';
 import DashboardLayout from './components/DashboardLayout';
 import EnrolledCourses from './Pages/StudentDashboard/EnrolledCourses';
 import Settings from './Pages/StudentDashboard/Settings';
-import CourseSection from './Pages/StudentDashboard/CoursesReg/CourseSection';
+import CourseSection from './Pages/StudentDashboard/Courses/CourseSection';
 import StudentManagement from './Pages/AdminDashBoard/StudentManagement';
 import AdminOverview from "./Pages/AdminDashBoard/adminOverview/AdminOverview";
 import NewCourse from "./Pages/AdminDashBoard/NewCourse/CourseManagement";

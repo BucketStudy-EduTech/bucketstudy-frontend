@@ -1,28 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import InternshipSection from './InternshipSection';
-import InternshipPlan from './InternshipPlan';
-import AvailablePrograms from './AvailablePrograms';
-import FAQ from './FAQ';
-import JoinUsSection from './JoinUsSection';
-import WhyChooseUs from './WhyChooseUs';
-import InternshipOverview from './internshipOverview';
-import AddInternshipForm from './AddInternshipForm';
+import React, { useState, useEffect } from "react";
+import InternshipSection from "./InternshipSection";
+import InternshipPlan from "./InternshipPlan";
+import AvailablePrograms from "./AvailablePrograms";
+import FAQ from "./FAQ";
+import JoinUsSection from "./JoinUsSection";
+import WhyChooseUs from "./WhyChooseUs";
+import InternshipOverview from "./internshipOverview";
+import AddInternshipForm from "./AddInternshipForm";
 import {
   getAllInternships,
   applyForInternship,
   createInternship,
   updateInternship,
   deleteInternship,
-} from '../../api/internshipApi';
+} from "../../api/internshipApi";
+import { getUserFromToken } from "../../api/authApi"; 
 
 function InternCom() {
   const [internships, setInternships] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [enrolledInternship, setEnrolledInternship] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false); 
+  const [isAdmin, setIsAdmin] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
-  const userId = 'user123'; // USer for demo
+
+  const [user, setUser] = useState(null);
+
+  // Load user role from token
+  useEffect(() => {
+    const u = getUserFromToken();
+    if (u) {
+      setUser(u);
+      setIsAdmin(u.role === "ADMIN");
+    }
+  }, []);
 
   // Effect to load internships and check user enrollment status
   useEffect(() => {
@@ -31,11 +42,16 @@ function InternCom() {
       try {
         const data = await getAllInternships();
         setInternships(data);
-        // In a real app, you would check if the current user is in `selectedStudent` of any internship
-        const enrolled = data.find(internship => internship.selectedStudent?.includes(userId));
-        if (enrolled) {
-          setIsEnrolled(true);
-          setEnrolledInternship(enrolled);
+
+        if (user && user.uid) {
+          // check if current user is already enrolled
+          const enrolled = data.find((internship) =>
+            internship.selectedStudent?.includes(user.uid)
+          );
+          if (enrolled) {
+            setIsEnrolled(true);
+            setEnrolledInternship(enrolled);
+          }
         }
       } catch (error) {
         console.error("Failed to fetch data:", error);
@@ -44,13 +60,13 @@ function InternCom() {
       }
     };
     fetchData();
-  }, []);
+  }, [user]);
 
   const handleRegister = async (internship) => {
+    if (!user) return;
     setLoading(true);
     try {
-      // API call to register the user for the internship
-      const result = await applyForInternship(internship.id, userId);
+      const result = await applyForInternship(internship.id, user.uid);
       setIsEnrolled(true);
       setEnrolledInternship(result);
     } catch (error) {
@@ -58,9 +74,9 @@ function InternCom() {
     } finally {
       setLoading(false);
     }
-  };   
+  };
 
-    const handleDeleteInternship = async (internshipId) => {
+  const handleDeleteInternship = async (internshipId) => {
     if (!window.confirm("Are you sure you want to delete this internship?")) return;
     setLoading(true);
     try {
@@ -78,7 +94,6 @@ function InternCom() {
     setLoading(true);
     try {
       await createInternship(newInternship);
-      // Refresh the internship list after adding a new one
       const updatedInternships = await getAllInternships();
       setInternships(updatedInternships);
       setShowAddForm(false);
@@ -100,23 +115,32 @@ function InternCom() {
   return (
     <div>
       {showAddForm ? (
-        <AddInternshipForm onSubmit={handleAddInternshipSubmit} onCancel={() => setShowAddForm(false)} />
-      ) : isEnrolled ? (
+        <AddInternshipForm
+          onSubmit={handleAddInternshipSubmit}
+          onCancel={() => setShowAddForm(false)}
+        />
+      ) : isEnrolled && !isAdmin ? (
+        // Student enrolled → show overview
         <InternshipOverview internship={enrolledInternship} />
       ) : (
         <>
           <InternshipSection
             internships={internships}
-            isAdmin={isAdmin}
+            isAdmin={isAdmin} // 👈 Admin sees Add/Delete buttons
             onAddInternshipClick={() => setShowAddForm(true)}
             onRegister={handleRegister}
             onDelete={handleDeleteInternship}
           />
-          <InternshipPlan />
-          <AvailablePrograms />
-          <FAQ />
-          <JoinUsSection />
-          <WhyChooseUs />
+          {/* Student sees plans & FAQs; Admin only sees internship management */}
+          {!isAdmin && (
+            <>
+              <InternshipPlan />
+              <AvailablePrograms />
+              <FAQ />
+              <JoinUsSection />
+              <WhyChooseUs />
+            </>
+          )}
         </>
       )}
     </div>

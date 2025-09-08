@@ -1,38 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { VscDashboard, VscSignOut } from 'react-icons/vsc';
-import profile from '../../assets/profile.png';
-import toast from 'react-hot-toast';
-import ConfirmationModel from '../../components/ConfirmationModel';
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { VscDashboard, VscSignOut } from "react-icons/vsc";
+import profile from "../../assets/profile.png";
+import toast from "react-hot-toast";
+import ConfirmationModel from "../../components/ConfirmationModel";
+import { useAuth } from "../../context/AuthContext"; // Use AuthContext
 
 function ProfileDropdown() {
   const [open, setOpen] = useState(false);
-  const [showConfirm, setShowConfirm] = useState(false); 
+  const [showConfirm, setShowConfirm] = useState(false);
   const dropdownRef = useRef(null);
-  const navigate = useNavigate();
+  const { user, logout } = useAuth(); // Get user and logout function from context
+  const isLoggedIn = !!user;
 
-  const isLoggedIn = true;
-
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [dropdownRef]);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  // Logout logic
   const handleLogout = () => {
-    localStorage.removeItem('user'); // Remove user
-    toast.success("Logout Successfully ! ");
+    logout(); // Call the logout function from context
+    toast.success("Logout Successfully!");
     setShowConfirm(false);
     setOpen(false);
-    navigate('/');
   };
 
   return (
@@ -52,10 +47,7 @@ function ProfileDropdown() {
 
           {open && (
             <div className="absolute top-[115%] -right-7 z-[1000] divide-y-[1px] overflow-hidden rounded-md border border-blue-100 bg-amber-50">
-              <Link
-                to="/dashboard/my-profile"
-                onClick={() => setOpen(false)}
-              >
+              <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
                 <div className="flex items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-gray-200">
                   <VscDashboard className="text-lg" />
                   Dashboard
