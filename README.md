@@ -89,8 +89,8 @@ src/
 
 ## 👥 Contributors
 
-    [Dishank Mahajan
-    Prathamesh Khatre
-    Sakshi Bhore
-    Shubhangi Ahire
-    ](https://)
+    -Dishank Mahajan
+    -Prathamesh Khatre
+    -Sakshi Bhor
+    -Shubhangi Ahire
+   
