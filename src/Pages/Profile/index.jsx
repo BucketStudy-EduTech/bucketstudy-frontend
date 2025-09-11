@@ -10,8 +10,7 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 import { getUserById, updateUser } from "../../api/userApi";
-
-const CURRENT_USER_ID = "60c72b2f9b1d8e001f8d4e78";
+import { getUserFromLocalStorage } from "../../api/authApi";
 
 // --- Profile Display Component ---
 const ProfileDisplay = ({ profile, onEdit }) => {
@@ -47,6 +46,7 @@ const ProfileDisplay = ({ profile, onEdit }) => {
         {[
           { label: "Full Name", value: profile.name },
           { label: "Email", value: profile.email },
+          { label: "Role", value: profile.role }, 
           { label: "Phone", value: profile.phone || "N/A" },
           { label: "Location", value: profile.location || "N/A" },
           {
@@ -187,8 +187,15 @@ export default function Profile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const data = await getUserById(CURRENT_USER_ID);
-        setProfile(data);
+        const user = getUserFromLocalStorage();
+        if (!user) {
+          console.error("No user logged in");
+          return;
+        }
+
+        // fetch full profile from backend
+        const data = await getUserById(user.userId);
+        setProfile({ ...data, role: user.role }); // include role from login
       } catch (error) {
         console.error("Failed to fetch profile:", error);
         setProfile({});
@@ -217,6 +224,7 @@ export default function Profile() {
   const handleSave = async () => {
     setIsLoading(true);
     try {
+      const user = getUserFromLocalStorage();
       const dataToSave = {
         name: profile.name,
         email: profile.email,
@@ -227,17 +235,14 @@ export default function Profile() {
         profileImage: profile.profileImage,
       };
 
-      const updatedUser = await updateUser(CURRENT_USER_ID, dataToSave);
-      setProfile(updatedUser);
+      const updatedUser = await updateUser(user.userId, dataToSave);
+      setProfile({ ...updatedUser, role: user.role });
       setIsEditing(false);
 
       if (avatarFile) {
-        console.log(
-          "Avatar file selected, but requires a separate backend endpoint for upload."
-        );
+        console.log("Avatar file selected, but requires separate backend upload API.");
       }
 
-      // Show success message
       setSuccess(true);
       setTimeout(() => setSuccess(false), 3000);
     } catch (error) {

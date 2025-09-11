@@ -33,11 +33,6 @@ export const loginUser = async (credentials) => {
     }
 };
 
-// This function is not needed anymore
-// export const getUserFromToken = () => {
-//     ...
-// };
-
 export const logoutUser = () => {
     localStorage.clear();
 };

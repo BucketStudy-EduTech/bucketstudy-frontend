@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
+import toast from "react-hot-toast";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import ForgotPassword from "../ForgetPass/Forgetpass";
 import { useAuth } from "../../../context/AuthContext"; // Use AuthContext
@@ -10,17 +11,18 @@ const Login = () => {
   const [showForgot, setShowForgot] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth(); // Use the login function from AuthContext
+  const { login } = useAuth(); // Use the login function from AuthContext..
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login(email, password);
-      // Redirection is handled by the login function in AuthContext
+      toast.success("Login successful! Welcome back.");
+      // Redirection is handled by the login function in AuthContext 
     } catch (err) {
       console.error("Login failed:", err);
       alert("Invalid email or password.");
-    }
+    } 
   };
 
   return (
