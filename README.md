@@ -90,7 +90,7 @@ src/
 ## 👥 Contributors
 
     -Dishank Mahajan
-    -Prathamesh Khatre
+    -Prathamesh Katre
     -Sakshi Bhor
     -Shubhangi Ahire
    
